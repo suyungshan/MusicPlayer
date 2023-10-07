@@ -1,0 +1,24 @@
+.controlZoom {
+  /* outline: 3px solid tomato; */
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+}
+
+.zoom {
+  /* outline: 3px solid tomato; */
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+}
+
+@media (width <= 768px) {
+  .controlZoom {
+    /* outline: 3px solid tomato; */
+    left: 1rem;
+    top: 1rem;
+  }
+}

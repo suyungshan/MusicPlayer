@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  justify-content: center;
+}
+
+@media (width > 1280px) {
+  body {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, #57149a 0%, #2a144d 100%);
+  }
+}

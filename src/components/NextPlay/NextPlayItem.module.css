@@ -1,0 +1,242 @@
+.playItem {
+  /* outline: 3px solid tomato; */
+  box-sizing: border-box;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1.5rem;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.infor {
+  /* outline: 3px solid tomato; */
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.detail {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.number {
+  /* outline: 3px solid tomato; */
+  background: none;
+  border: none;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+}
+
+.picture {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.picture img {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+  object-position: center;
+}
+
+.actor {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+  flex-shrink: 0;
+}
+
+.song {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-self: stretch;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+  /* height: 1.3125rem; */
+}
+
+.singer {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-self: stretch;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/text-hint-12 */
+  font-family: Noto Sans TC;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 0.9375rem */
+  /* height: 0.9375rem; */
+}
+
+.album {
+  /* outline: 3px solid tomato; */
+  grid-column-start: 4;
+  grid-column-end: 6;
+  height: 0.9375rem;
+  flex-shrink: 0;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Noto Sans TC;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  align-self: center;
+  margin-right: auto;
+  width: 100%;
+}
+
+.last {
+  /* outline: 3px solid tomato; */
+  grid-column-start: 6;
+  grid-column-end: 7;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+
+.time {
+  /* outline: 3px solid tomato; */
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Noto Sans TC;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 0.9375rem */
+}
+
+.favButton {
+  /* outline: 3px solid tomato; */
+  background: none;
+  border: none;
+}
+
+.favorite {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (width <= 1200px) {
+  .detail {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    width: 100%;
+  }
+}
+
+@media (width <= 768px) {
+  .playItem {
+    /* outline: 3px solid tomato; */
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0.5rem 0;
+    justify-content: space-between;
+  }
+
+  .infor {
+    /* outline: 3px solid tomato; */
+    grid-column-start: 1;
+    grid-column-end: 6;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .detail {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    width: auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .album {
+    /* outline: 3px solid tomato; */
+    width: auto;
+    grid-column-start: unset;
+    grid-column-end: unset;
+  }
+
+  .actor {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    margin-right: 0rem;
+  }
+
+  .song {
+    /* outline: 3px solid tomato; */
+    line-height: 125%;
+  }
+
+  .singer {
+    /* outline: 3px solid tomato; */
+    color: var(--theme-color-secondary-lightest, #a49bb4);
+    font-feature-settings: "clig" off, "liga" off;
+  }
+
+  .picture {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 0.25rem 0 0;
+  }
+
+  .picture img {
+    /* outline: 3px solid tomato; */
+    border-radius: 0.125rem;
+  }
+
+  .time {
+    /* outline: 3px solid tomato; */
+    color: var(--theme-color-secondary-lightest, #a49bb4);
+  }
+
+  .favorite {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

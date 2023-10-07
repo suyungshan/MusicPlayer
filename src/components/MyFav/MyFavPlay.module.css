@@ -1,0 +1,23 @@
+.nextPlayFav {
+  /* outline: 3px solid tomato; */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+  height: 25.8125rem;
+  background: var(--theme-color-secondary-default, #2a144d);
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+@media (width <= 1200px) {
+  .nextPlayFav {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    height: max-content;
+    background: none;
+    padding: 0;
+  }
+}

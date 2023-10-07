@@ -1,0 +1,17 @@
+.update {
+  color: var(--theme-color-secondary-lighter, #8c7ca9);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Noto Sans TC;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.6875rem */
+  letter-spacing: 0.0625rem;
+}
+
+@media (width <= 768px) {
+  .update {
+    font-size: 0.875rem;
+  }
+}

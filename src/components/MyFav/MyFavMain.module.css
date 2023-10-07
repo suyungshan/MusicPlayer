@@ -1,0 +1,122 @@
+.main {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, #57149a 0%, #2a144d 100%);
+  box-sizing: border-box;
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.content {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1 0 0;
+}
+
+.picture {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  width: 10.8125rem;
+  height: 10.8125rem;
+  min-width: 10.8125rem;
+  min-height: 10.8125rem;
+}
+
+.picture img {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+  object-position: center;
+}
+
+.infor {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  height: 10.8125rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+
+.information {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.playPause {
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+  background: none;
+  border: none;
+}
+
+@media (width <= 1200px) {
+  .main {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    grid-column-start: none;
+    grid-column-end: none;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+  }
+
+  .content {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (width <= 768px) {
+  .content {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .InforPlay {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+  }
+
+  .information {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: white;
+    width: fit-content;
+    height: auto;
+  }
+}

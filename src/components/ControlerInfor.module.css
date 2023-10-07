@@ -1,0 +1,318 @@
+.infor {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+}
+
+.inforBar {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  width: 12.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+}
+
+.picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picture img {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+  object-position: center;
+}
+
+.detail {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex: 1 0 0;
+}
+
+.inforControl {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 100%;
+}
+
+.inforBarControl {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+}
+
+.detailcontrol {
+  /* outline: 3px solid tomato; */
+  grid-column-start: 1;
+  grid-column-end: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.pictureControl {
+  /* outline: 3px solid tomato; */
+  grid-column-start: 1;
+  grid-column-end: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pictureControl img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+  object-position: center;
+  aspect-ratio: 1/1; /* 此行添加正方形的高寬比例 */
+}
+
+.song {
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* Mobile/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 1.09375rem */
+}
+
+.songcontrol {
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Noto Sans TC;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%; /* 2.1875rem */
+}
+
+.singer {
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* Mobile/text-hint-12 */
+  font-family: Noto Sans TC;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 0.9375rem */
+}
+
+.singerControl {
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* Mobile/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 1.09375rem */
+}
+
+@media (width <= 1200px) {
+  .picture img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .inforControl {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    height: 100%;
+  }
+
+  .inforBarControl {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+  }
+
+  .detailcontrol {
+    /* outline: 3px solid tomato; */
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .pictureControl {
+    /* outline: 3px solid tomato; */
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pictureControl img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+    object-position: center;
+    aspect-ratio: 1/1; /* 此行添加正方形的高寬比例 */
+  }
+}
+
+@media (width <= 1024px) {
+  .pictureControl {
+    /* outline: 3px solid tomato; */
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pictureControl img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+    object-position: center;
+    aspect-ratio: 1/1; /* 此行添加正方形的高寬比例 */
+  }
+}
+
+@media (width <= 768px) {
+  .inforBar {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: 14.25rem;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.5rem;
+  }
+
+  .picture img {
+    /* outline: 3px solid tomato; */
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .detail {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    flex: 1 0 0;
+    width: 13rem;
+  }
+
+  .song {
+    color: var(--neutral-color-white, #fff);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* Mobile/Body-14 */
+    font-family: Noto Sans TC;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 1.09375rem */
+  }
+
+  .singer {
+    color: var(--neutral-color-white, #fff);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* Mobile/text-hint-12 */
+    font-family: Noto Sans TC;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 0.9375rem */
+  }
+
+  /* .pictureControl img {
+    width: 18rem;
+    height: 18rem;
+  } */
+
+  .inforBarControl {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+  }
+
+  .detailcontrol {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .pictureControl {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: 30rem;
+    height: 30rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pictureControl img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+    object-position: center;
+    aspect-ratio: 1/1; /* 此行添加正方形的高寬比例 */
+  }
+
+  .songcontrol {
+    font-size: 1.125rem;
+    line-height: 150%;
+  }
+}
+
+@media (width < 480px) {
+  .pictureControl {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: 18rem;
+    height: 18rem;
+    align-items: center;
+    justify-content: center;
+  }
+}

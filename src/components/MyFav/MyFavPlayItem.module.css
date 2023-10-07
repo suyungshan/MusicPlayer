@@ -1,0 +1,256 @@
+.playItem {
+  /* outline: 3px solid tomato; */
+  width: auto;
+  padding: 0.5rem 0.75rem;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+.detail {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 31.5rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+
+.number {
+  /* outline: 3px solid tomato; */
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+  height: 1.3125rem;
+  border: none;
+  background: none;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.picture {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.picture img {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+  object-position: center;
+  border-radius: 0.125rem;
+}
+
+.actor {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+}
+
+.song {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-self: stretch;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+}
+
+.singer {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-self: stretch;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/text-hint-12 */
+  font-family: Noto Sans TC;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 0.9375rem */
+}
+
+.album {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  flex: 1 0 0;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Noto Sans TC;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  align-self: center;
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
+
+.last {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1 0 0;
+  grid-column-start: 6;
+  grid-column-end: -1;
+}
+
+.time {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Noto Sans TC;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 0.9375rem */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.favButton {
+  /* outline: 3px solid tomato; */
+  background: none;
+  /* outline: none; */
+  border: none;
+}
+
+.favorite {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (width <= 1200px) {
+  .playItem {
+    /* outline: 3px solid tomato; */
+    width: auto;
+    padding: 0.5rem 0.75rem;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 1.5rem;
+  }
+
+  .detail {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    width: 100%;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .actor {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    margin-right: 1.5rem;
+  }
+
+  .album {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: 100%;
+    height: 0.9375rem;
+    flex: 1 0 0;
+    color: var(--neutral-color-white, #fff);
+    font-feature-settings: "clig" off, "liga" off;
+    /* Desktop/text-hint-12 */
+    font-family: Noto Sans TC;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 0.9375rem */
+    align-self: center;
+    margin-right: auto;
+  }
+}
+
+@media (width <= 768px) {
+  .playItem {
+    /* outline: 3px solid tomato; */
+    width: auto;
+    padding: 0.5rem 0;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 1.5rem;
+  }
+
+  .detail {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    width: 100%;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+  }
+
+  .picture {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 0.25rem 0 0;
+  }
+
+  .actor {
+    /* outline: 3px solid tomato; */
+    width: 8rem;
+    margin-right: 0;
+  }
+
+  .number {
+    /* outline: 3px solid tomato; */
+    display: none;
+  }
+
+  .album {
+    display: none;
+    /* outline: 3px solid tomato; */
+  }
+
+  .song {
+    /* outline: 3px solid tomato; */
+    line-height: 125%;
+  }
+}

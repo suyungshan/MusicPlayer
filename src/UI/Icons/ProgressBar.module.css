@@ -1,0 +1,84 @@
+.progress input[type="range"],
+.progress input[type="range"]::-webkit-slider-runnable-track,
+.progress input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.progress input[type="range"] {
+  /* outline: 3px solid tomato; */
+  height: 1rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0); /* 為了解釋方便所設定 */
+}
+
+.progress input[type="range"]::-webkit-slider-runnable-track {
+  height: 0.15rem;
+  width: 100%;
+  background: #aaa;
+}
+
+.progress input[type="range"]::-webkit-slider-thumb {
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-top: -3px; /* 會受到寬高影響定位，需微調 */
+  background-color: white; /* 為了解釋方便所設定 */
+  border-radius: 50%;
+}
+
+/*Control 介面*/
+.progressControl input[type="range"],
+.progressControl input[type="range"]::-webkit-slider-runnable-track,
+.progressControl input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.progressControl input[type="range"] {
+  /* outline: 3px solid tomato; */
+  height: 1rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0); /* 為了解釋方便所設定 */
+}
+
+.progressControl input[type="range"]::-webkit-slider-runnable-track {
+  height: 0.15rem;
+  width: 100%;
+  background: #aaa;
+}
+
+.progressControl input[type="range"]::-webkit-slider-thumb {
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-top: -3px; /* 會受到寬高影響定位，需微調 */
+  background-color: white; /* 為了解釋方便所設定 */
+  border-radius: 50%;
+}
+
+@media (width <= 768px) {
+  .progress input[type="range"],
+  .progress input[type="range"]::-webkit-slider-runnable-track,
+  .progress input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  .progress input[type="range"] {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0); /* 為了解釋方便所設定 */
+  }
+
+  .progress input[type="range"]::-webkit-slider-runnable-track {
+    /* outline: 3px solid tomato; */
+    height: 0.15rem;
+    width: 100%;
+    background: #aaa;
+  }
+
+  .progress input[type="range"]::-webkit-slider-thumb {
+    /* outline: 3px solid tomato; */
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: white; /* 為了解釋方便所設定 */
+    border-radius: 50%;
+  }
+}

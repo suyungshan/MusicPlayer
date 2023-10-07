@@ -1,0 +1,85 @@
+.infor {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  align-items: flex-start;
+  gap: 0.56rem;
+}
+
+.AlbumName {
+  /* outline: 3px solid tomato; */
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Noto Sans TC;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%; /* 2.8125rem */
+}
+
+.detail {
+  /* outline: 3px solid tomato; */
+  color: var(--neutral-color-white, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  /* Desktop/Body-14 */
+  font-family: Noto Sans TC;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 1.3125rem */
+}
+
+@media (width <= 768px) {
+  .main {
+    /* outline: 3px solid tomato; */
+    padding: 0rem;
+    border-radius: 0rem;
+    background: none;
+    width: 18rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .content {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    width: auto;
+    height: auto;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+    gap: auto;
+  }
+
+  .information {
+    /* outline: 3px solid tomato; */
+    color: white;
+    height: auto;
+    gap: 0.5rem;
+  }
+
+  .AlbumName {
+    /* outline: 3px solid tomato; */
+    color: var(--neutral-color-white, #fff);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* Mobile/H1-24 */
+    font-family: Noto Sans TC;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%; /* 1.875rem */
+  }
+
+  .detail {
+    /* outline: 3px solid tomato; */
+    color: var(--theme-color-secondary-lightest, #a49bb4);
+    font-feature-settings: "clig" off, "liga" off;
+    /* Mobile/Body-14 */
+    font-family: Noto Sans TC;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 1.09375rem */
+  }
+}

@@ -1,0 +1,151 @@
+.main {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  align-self: stretch;
+  border-radius: 1rem 1rem 0rem 0rem;
+  box-sizing: border-box;
+}
+
+.content {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.picture {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  width: 10.8125rem;
+  height: 10.8125rem;
+}
+
+.picture img {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.infor {
+  /* outline: 3px solid tomato; */
+  height: 10.8125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.information {
+  /* outline: 3px solid tomato; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  align-self: stretch;
+  color: white;
+}
+
+.playButton {
+  /* outline: 3px solid tomato; */
+  background: none;
+  border: none;
+}
+
+/*PictureBackCard*/
+.back {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  position: relative;
+  display: flex;
+  background: linear-gradient(180deg, #57149a 0%, #2a144d 100%),
+    lightgray 50% / cover no-repeat;
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.pictureBack {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 13.8125rem;
+  display: flex;
+  opacity: 0.2;
+}
+
+.pictureBack img {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.contentBack {
+  /* outline: 3px solid tomato; */
+  position: absolute;
+  width: 100%;
+}
+
+@media (width <= 1200px) {
+  .main {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    padding: 0rem;
+    align-items: flex-end;
+    gap: 1rem;
+    align-self: stretch;
+    border-radius: 0rem;
+    width: 100%;
+  }
+}
+
+@media (width <= 768px) {
+  .main {
+    /* outline: 3px solid tomato; */
+    padding: 0rem;
+    border-radius: 0rem;
+    background: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .content {
+    /* outline: 3px solid tomato; */
+    width: 100%;
+    height: auto;
+    justify-content: none;
+    align-items: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .infor {
+    /* outline: 3px solid tomato; */
+    display: flex;
+    height: min-content;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+  }
+
+  .information {
+    /* outline: 3px solid tomato; */
+    width: max-content;
+    color: white;
+    height: auto;
+    gap: 0.5rem;
+  }
+}
