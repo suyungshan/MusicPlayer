@@ -27,11 +27,9 @@
 .name {
   /* outline: 3px solid tomato; */
   color: var(--neutral-color-white, #fff);
+  font-family: "Quicksand", sans-serif;
   text-align: center;
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: Quicksand;
   font-size: 2rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 150%; /* 3rem */
   letter-spacing: 0.125rem;
@@ -40,10 +38,8 @@
 .music {
   /* outline: 3px solid tomato; */
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: Quicksand;
+  font-family: "Quicksand", sans-serif;
   font-size: 0.875rem;
-  font-style: normal;
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 0.125rem;

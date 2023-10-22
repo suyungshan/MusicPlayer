@@ -1,23 +1,29 @@
-import Favorite from "../../UI/Icons/Favorite";
+import FavoriteFav from "../../UI/Icons/FavoriteFav";
 import AlbumPicture from "../AlbumPicture";
 import { useSelector, useDispatch } from "react-redux";
-import musicData, { musicDataActions } from "../../store/musicData";
+import { musicDataActions } from "../../store/musicData";
+import { useState, Fragment } from "react";
 import { playControlsActions } from "../../store/playControls";
+import NextPlayIcon from "../../UI/Icons/NextPlayIcon";
+import NextPauseIcon from "../../UI/Icons/NextPauseIcon";
 import classes from "./MyFavPlayItem.module.css";
 
 function MyFavPlayItem(props) {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
-  const midScreen = useSelector((state) => state.windowSize.midScreen);
+  const playPause = useSelector((state) => state.playControls.playPause);
   const favList = useSelector((state) => state.musicData.favList);
   const favPlay = useSelector((state) => state.playControls.favPlay);
   const musicPlay = useSelector((state) => state.musicData.musicPlay);
   const videoIndex = useSelector((state) => state.playControls.videoIndex);
+  const [showHiddenPlayPause, setShowHiddenPlayPause] = useState(false);
+  const activeNextPlay = useSelector(
+    (state) => state.playControls.activeNextPlay
+  );
   const dispatch = useDispatch();
 
   const myFavMusicHandler = () => {
-    //點擊到同歌曲的話重新播放該歌曲
     if (favList[props.number - 1].url === musicPlay[videoIndex].url) {
-      props.playerRef.current.seekTo(0);
+      dispatch(playControlsActions.pause());
     }
 
     dispatch(playControlsActions.openFavPlay());
@@ -52,9 +58,27 @@ function MyFavPlayItem(props) {
       deleteFavorites.length === 0
     ) {
       dispatch(musicDataActions.updateFavList([]));
+      dispatch(musicDataActions.updateMusicPlay(deleteFavorites));
     } else {
       dispatch(musicDataActions.updateFavList(deleteFavorites));
+      dispatch(musicDataActions.updateMusicPlay(deleteFavorites));
     }
+  };
+
+  const handleMouseEnter = () => {
+    setShowHiddenPlayPause(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowHiddenPlayPause(false);
+  };
+
+  const pauseHandler = () => {
+    dispatch(playControlsActions.pause());
+  };
+
+  const activeHandler = (id) => {
+    dispatch(playControlsActions.adjustActiveNextPlay(id)); //這裡
   };
 
   return smallScreen ? (
@@ -71,30 +95,56 @@ function MyFavPlayItem(props) {
       <div className={classes.last}>
         <p className={classes.time}>{props.time}</p>
         <button className={classes.favButton} onClick={deleteFavoritesHandler}>
-          <Favorite className={classes.favorite}></Favorite>
+          <FavoriteFav className={classes.favorite}></FavoriteFav>
         </button>
       </div>
     </div>
   ) : (
-    <div className={classes.playItem}>
+    <div
+      className={
+        activeNextPlay === props.song
+          ? classes.playItemActive
+          : classes.playItem
+      }
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className={classes.detail}>
-        <button className={classes.number} onClick={myFavMusicHandler}>
-          {props.number}
-        </button>
+        {showHiddenPlayPause ? (
+          <Fragment>
+            {playPause && favList[videoIndex].song === props.song ? (
+              <NextPauseIcon
+                className={classes.nextPlayIcon}
+                stateHandler={pauseHandler}
+              ></NextPauseIcon>
+            ) : (
+              <NextPlayIcon
+                className={classes.nextPlayIcon}
+                choiceMusicHandler={myFavMusicHandler}
+                activeHandler={activeHandler}
+                song={props.song}
+              ></NextPlayIcon>
+            )}
+          </Fragment>
+        ) : (
+          <button className={classes.number} onClick={myFavMusicHandler}>
+            {props.number}
+          </button>
+        )}
         <AlbumPicture
           className={classes.picture}
           picture={props.a}
         ></AlbumPicture>
         <div className={classes.actor}>
           <p className={classes.song}>{props.song}</p>
-          {midScreen ? <></> : <p className={classes.singer}>{props.singer}</p>}
+          <p className={classes.singer}>{props.singer}</p>
         </div>
       </div>
       <p className={classes.album}>{props.album}</p>
       <div className={classes.last}>
         <p className={classes.time}>{props.time}</p>
         <button className={classes.favButton} onClick={deleteFavoritesHandler}>
-          <Favorite className={classes.favorite}></Favorite>
+          <FavoriteFav className={classes.favorite}></FavoriteFav>
         </button>
       </div>
     </div>

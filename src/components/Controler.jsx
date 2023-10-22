@@ -1,14 +1,17 @@
-import PlayPause from "../UI/Icons/PlayPause";
+import Play from "../UI/Icons/Play";
 import ProgressBar from "../UI/Icons/ProgressBar";
 import Loop from "../UI/Icons/Loop";
 import Next from "../UI/Icons/Next";
 import Last from "../UI/Icons/Last";
 import Random from "../UI/Icons/Random";
 import PlayTime from "../UI/Icons/PlayTime";
-import classes from "./Controler.module.css";
+import Pause from "../UI/Icons/Pause";
 import { useSelector, useDispatch } from "react-redux";
 import { playControlsActions } from "../store/playControls";
 import { musicDataActions } from "../store/musicData";
+import PauseSmall from "../UI/Icons/PauseSmall";
+import PlaySmall from "../UI/Icons/PlaySmall";
+import classes from "./Controler.module.css";
 
 function Controler(props) {
   const videoIndex = useSelector((state) => state.playControls.videoIndex);
@@ -24,11 +27,20 @@ function Controler(props) {
   const favPlay = useSelector((state) => state.playControls.favPlay);
   const favList = useSelector((state) => state.musicData.favList);
   const musicPlay = useSelector((state) => state.musicData.musicPlay);
+  const playPause = useSelector((state) => state.playControls.playPause);
 
   const dispatch = useDispatch();
 
-  const playPauseHandler = () => {
-    dispatch(playControlsActions.togglePlay());
+  const playHandler = () => {
+    dispatch(playControlsActions.play());
+  };
+
+  const activeHandler = (id) => {
+    dispatch(playControlsActions.adjustActiveNextPlay(id));
+  };
+
+  const pauseHandler = () => {
+    dispatch(playControlsActions.pause());
   };
 
   const loopHandler = () => {
@@ -54,6 +66,7 @@ function Controler(props) {
       dispatch(musicDataActions.updateMusicPlay(favList));
       dispatch(playControlsActions.adjustVideoIndex(videoIndex - 1));
       dispatch(musicDataActions.updateControlerInfor(favList));
+
       dispatch(playControlsActions.play());
     }
 
@@ -63,16 +76,28 @@ function Controler(props) {
     const lastIndex = videoIndex - 1;
     dispatch(playControlsActions.adjustVideoIndex(lastIndex));
     dispatch(playControlsActions.resetPlayed());
+    dispatch(
+      playControlsActions.adjustActiveNextPlay(musicPlay[videoIndex - 1].song)
+    );
     dispatch(playControlsActions.play());
   };
 
   return smallScreen && !midScreen && !control ? (
     <div className={classes.controler}>
       <div className={classes.play}>
-        <PlayPause
-          stateHandler={playPauseHandler}
-          className={classes.playPause}
-        ></PlayPause>
+        {playPause ? (
+          <PauseSmall
+            stateHandler={pauseHandler}
+            className={classes.playPause}
+          ></PauseSmall>
+        ) : (
+          <PlaySmall
+            stateHandler={playHandler}
+            activeHandler={activeHandler}
+            song={musicPlay[0].song}
+            className={classes.playPause}
+          ></PlaySmall>
+        )}
       </div>
     </div>
   ) : control ? (
@@ -87,10 +112,14 @@ function Controler(props) {
           className={classes.loop}
         ></Loop>
         <Last onLastVideo={onLastVideo} className={classes.last}></Last>
-        <PlayPause
-          stateHandler={playPauseHandler}
-          className={classes.playPauseControl}
-        ></PlayPause>
+        {playPause ? (
+          <Pause
+            stateHandler={pauseHandler}
+            className={classes.playPause}
+          ></Pause>
+        ) : (
+          <Play stateHandler={playHandler} className={classes.playPause}></Play>
+        )}
         <Next onNextVideo={props.onNextVideo} className={classes.next}></Next>
         <div className={classes.randomBlock}>
           <Random
@@ -126,10 +155,19 @@ function Controler(props) {
           className={classes.loop}
         ></Loop>
         <Last onLastVideo={onLastVideo} className={classes.last}></Last>
-        <PlayPause
-          stateHandler={playPauseHandler}
-          className={classes.playPause}
-        ></PlayPause>
+        {playPause ? (
+          <Pause
+            stateHandler={pauseHandler}
+            className={classes.playPause}
+          ></Pause>
+        ) : (
+          <Play
+            stateHandler={playHandler}
+            activeHandler={activeHandler}
+            song={musicPlay[0].song}
+            className={classes.playPause}
+          ></Play>
+        )}
         <Next onNextVideo={props.onNextVideo} className={classes.next}></Next>
         <div className={classes.randomBlock}>
           <Random

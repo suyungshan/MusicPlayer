@@ -1,7 +1,7 @@
-import Home from "../../UI/Icons/Home";
-import Favorite from "../../UI/Icons/Favorite";
-import Profile from "../../UI/Icons/Profile";
-import Setting from "../../UI/Icons/Setting";
+import HomeNavigation from "../../UI/Icons/HomeNavigation";
+import FavoriteNavigation from "../../UI/Icons/FavoriteNavigation";
+import ProfileNavigation from "../../UI/Icons/ProfileNavigation";
+import SettingNavigation from "../../UI/Icons/SettingNavigation";
 import { useSelector, useDispatch } from "react-redux";
 import { interfaceActions } from "../../store/interface";
 import classes from "./NavigationLists.module.css";
@@ -48,25 +48,25 @@ function NavigationList() {
     <div className={classes.lists}>
       <button className={classes.button} onClick={homeHandler}>
         <div className={classes.icon}>
-          <Home using={home}></Home>
+          <HomeNavigation using={home}></HomeNavigation>
         </div>
         <p className={home ? classes.name : classes.nameUnusing}>Home</p>
       </button>
       <button className={classes.button} onClick={favHandler}>
         <div className={classes.icon}>
-          <Favorite using={fav}></Favorite>
+          <FavoriteNavigation using={fav}></FavoriteNavigation>
         </div>
         <p className={fav ? classes.name : classes.nameUnusing}>Favorites</p>
       </button>
       <button className={classes.button} onClick={profileHandler}>
         <div className={classes.icon}>
-          <Profile using={profile}></Profile>
+          <ProfileNavigation using={profile}></ProfileNavigation>
         </div>
         <p className={profile ? classes.name : classes.nameUnusing}>Profile</p>
       </button>
       <button className={classes.button} onClick={settingHandler}>
         <div className={classes.icon}>
-          <Setting using={setting}></Setting>
+          <SettingNavigation using={setting}></SettingNavigation>
         </div>
         <p className={setting ? classes.name : classes.nameUnusing}>Setting</p>
       </button>

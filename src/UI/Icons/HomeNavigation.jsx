@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-function Home(props) {
+function HomeNavigation(props) {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
 
   return (
@@ -36,4 +36,4 @@ function Home(props) {
   );
 }
 
-export default Home;
+export default HomeNavigation;

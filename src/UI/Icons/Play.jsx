@@ -1,6 +1,14 @@
-function PlayPause(props) {
+function Play(props) {
   return (
-    <button onClick={props.stateHandler} className={props.className}>
+    <button
+      onClick={() => {
+        props.stateHandler();
+        {
+          props.activeHandler ? props.activeHandler(props.song) : null;
+        }
+      }}
+      className={props.className}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
@@ -21,4 +29,4 @@ function PlayPause(props) {
   );
 }
 
-export default PlayPause;
+export default Play;

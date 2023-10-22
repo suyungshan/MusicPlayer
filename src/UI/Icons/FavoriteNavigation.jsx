@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
-function Favorite(props) {
+function FavoriteNavigation(props) {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
 
   return (
@@ -40,4 +40,4 @@ function Favorite(props) {
   );
 }
 
-export default Favorite;
+export default FavoriteNavigation;

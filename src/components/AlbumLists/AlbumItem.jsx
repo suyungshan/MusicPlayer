@@ -6,45 +6,44 @@ import { interfaceActions } from "../../store/interface";
 import { playControlsActions } from "../../store/playControls";
 
 function AlbumItem(props) {
-  const active = useSelector((state) => state.playControls.active);
+  const activeAlbum = useSelector((state) => state.playControls.activeAlbum);
   const dispatch = useDispatch();
 
   const mainData = {
     album: props.album,
     id: props.id,
-    a: props.a, //這裡
+    a: props.a,
     singer: props.singer,
     fulltime: props.fulltime,
     list: props.list,
   };
 
   const changeMusicHandler = () => {
-    console.log(mainData);
+    window.scrollTo(0, 0);
     dispatch(musicDataActions.updatePlayingData(mainData));
     dispatch(musicDataActions.updateNextPlay(mainData));
     dispatch(interfaceActions.openMain());
   };
 
   const activeHandler = (id) => {
-    dispatch(playControlsActions.adjustActive(id)); //這裡
+    dispatch(playControlsActions.adjustActiveAlbum(id));
   };
 
   return (
     <button
-      className={active === props.a ? classes.iconActive : classes.icon} //這裡
+      className={activeAlbum === props.a ? classes.iconActive : classes.icon}
       onClick={() => {
         changeMusicHandler();
-        activeHandler(props.a); //這裡
+        activeHandler(props.a);
       }}
     >
-      <div className={classes.picture}>
-        <AlbumPicture
-          picture={props.a}
-          className={classes.buttonPicture}
-        ></AlbumPicture>
+      <div className={classes.buttonPicture}>
+        <AlbumPicture picture={props.a}></AlbumPicture>
       </div>
-      <div className={classes.album}>{props.album}</div>
-      <div className={classes.singer}>{props.singer}</div>
+      <div className={classes.infor}>
+        <p className={classes.album}>{props.album}</p>
+        <p className={classes.singer}>{props.singer}</p>
+      </div>
     </button>
   );
 }

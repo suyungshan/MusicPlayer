@@ -6,6 +6,16 @@
   border: none;
 }
 
+.inforSamll {
+  /* outline: 3px solid tomato; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border: none;
+}
+
 .inforBar {
   /* outline: 3px solid tomato; */
   display: flex;
@@ -89,49 +99,48 @@
 }
 
 .song {
+  /* outline: 3px solid tomato; */
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-
-  /* Mobile/Body-14 */
-  font-family: Noto Sans TC;
   font-size: 0.875rem;
-  font-style: normal;
   font-weight: 400;
-  line-height: 125%; /* 1.09375rem */
+  line-height: 125%;
+  text-align: left;
 }
 
 .songcontrol {
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: Noto Sans TC;
   font-size: 1.75rem;
-  font-style: normal;
   font-weight: 500;
   line-height: 125%; /* 2.1875rem */
 }
 
 .singer {
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-
-  /* Mobile/text-hint-12 */
-  font-family: Noto Sans TC;
   font-size: 0.75rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 125%; /* 0.9375rem */
 }
 
 .singerControl {
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-
-  /* Mobile/Body-14 */
-  font-family: Noto Sans TC;
   font-size: 0.875rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 125%; /* 1.09375rem */
+  text-align: left;
+}
+
+.favButton {
+  /* outline: 3px solid tomato; */
+  background: none;
+  border: none;
+  display: flex;
+  position: relative;
+}
+
+.favorite {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
 }
 
 @media (width <= 1200px) {
@@ -237,24 +246,15 @@
 
   .song {
     color: var(--neutral-color-white, #fff);
-    font-feature-settings: "clig" off, "liga" off;
-
-    /* Mobile/Body-14 */
-    font-family: Noto Sans TC;
     font-size: 0.875rem;
-    font-style: normal;
+
     font-weight: 400;
-    line-height: 125%; /* 1.09375rem */
+    line-height: 125%;
   }
 
   .singer {
     color: var(--neutral-color-white, #fff);
-    font-feature-settings: "clig" off, "liga" off;
-
-    /* Mobile/text-hint-12 */
-    font-family: Noto Sans TC;
     font-size: 0.75rem;
-    font-style: normal;
     font-weight: 400;
     line-height: 125%; /* 0.9375rem */
   }

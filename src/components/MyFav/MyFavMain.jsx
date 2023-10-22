@@ -1,22 +1,18 @@
 import AlbumPicture from "../AlbumPicture";
 import MyFavMainInf from "./MyFavMainInf.";
-import PlayPause from "../../UI/Icons/PlayPause";
-import PictureBackCard from "../../UI/Card/PictureBackCard";
+import Play from "../../UI/Icons/Play";
 import { useSelector, useDispatch } from "react-redux";
 import { musicDataActions } from "../../store/musicData";
 import { playControlsActions } from "../../store/playControls";
 import classes from "./MyFavMain.module.css";
 import { Fragment } from "react";
 
-function MyFavMain(props) {
-  const midScreen = useSelector((state) => state.windowSize.midScreen);
+function MyFavMain() {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
   const favList = useSelector((state) => state.musicData.favList);
   const videoIndex = useSelector((state) => state.playControls.videoIndex);
   const favPlay = useSelector((state) => state.playControls.favPlay);
   const dispatch = useDispatch();
-
-  console.log(favList);
 
   const playFavHandler = () => {
     if (favList.length === 0) {
@@ -51,10 +47,10 @@ function MyFavMain(props) {
                 fulltime={"05:00"}
                 className={classes.information}
               ></MyFavMainInf>
-              <PlayPause
+              <Play
                 className={classes.playPause}
                 stateHandler={playFavHandler}
-              ></PlayPause>
+              ></Play>
             </div>
           </div>
         </div>
@@ -77,10 +73,10 @@ function MyFavMain(props) {
                 fulltime={"05:00"}
                 className={classes.information}
               ></MyFavMainInf>
-              <PlayPause
+              <Play
                 className={classes.playPause}
                 stateHandler={playFavHandler}
-              ></PlayPause>
+              ></Play>
             </div>
           </div>
         </div>

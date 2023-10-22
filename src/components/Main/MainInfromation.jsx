@@ -5,8 +5,8 @@ function MainInformation(props) {
     <div className={props.className}>
       <p className={classes.AlbumName}>{props.album}</p>
       <div className={classes.infor}>
-        <p className={classes.detail}>{props.singer}</p>
-        <p className={classes.detail}>{props.fulltime}</p>
+        <p className={classes.singer}>{props.singer}</p>
+        <p className={classes.fulltime}>{props.fulltime}</p>
       </div>
     </div>
   );

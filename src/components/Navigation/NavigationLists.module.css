@@ -44,6 +44,7 @@
 
 .name {
   /* outline: 3px solid tomato; */
+  font-family: "Noto Sans TC", sans-serif;
   border: none;
   background: none;
   width: auto;
@@ -52,6 +53,7 @@
 }
 .nameUnusing {
   /* outline: 3px solid tomato; */
+  font-family: "Noto Sans TC", sans-serif;
   border: none;
   background: none;
   width: auto;
@@ -75,11 +77,7 @@
   .icon {
     /* outline: 3px solid tomato; */
     color: var(--neutral-color-white, #fff);
-    font-feature-settings: "clig" off, "liga" off;
-    /* Mobile/text-hint-12 */
-    font-family: Noto Sans TC;
     font-size: 0.75rem;
-    font-style: normal;
     font-weight: 400;
     line-height: 125%; /* 0.9375rem */
     border: none;

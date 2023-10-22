@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-function Profile(props) {
+function ProfileNavigation(props) {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
 
   return (
@@ -36,4 +36,4 @@ function Profile(props) {
   );
 }
 
-export default Profile;
+export default ProfileNavigation;

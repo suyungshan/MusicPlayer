@@ -2,11 +2,7 @@
   /* outline: 3px solid tomato; */
   gap: 0.625rem;
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  /* Desktop/Body-sm-14 */
-  font-family: Noto Sans TC;
   font-size: 0.875rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 1.3125rem */
 }

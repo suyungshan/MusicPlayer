@@ -12,7 +12,10 @@ const initailPlayControlsState = {
   playSecond: "00:00",
   remainSecond: "04:46",
   favPlay: false,
-  active: null,
+  activeAlbum: null,
+  activeNextPlay: null,
+  showHidden: false,
+  addToFav: false,
 };
 
 const playControlsSlice = createSlice({
@@ -87,8 +90,27 @@ const playControlsSlice = createSlice({
       state.favPlay = false;
     },
 
-    adjustActive(state, action) {
-      state.active = action.payload;
+    adjustActiveAlbum(state, action) {
+      state.activeAlbum = action.payload;
+    },
+    adjustActiveNextPlay(state, action) {
+      state.activeNextPlay = action.payload;
+    },
+
+    openShowHidden(state) {
+      state.showHidden = true;
+    },
+
+    closeShowHidden(state) {
+      state.showHidden = false;
+    },
+
+    addToFav(state) {
+      state.addToFav = true;
+    },
+
+    deleteFromFav(state) {
+      state.addToFav = false;
     },
   },
 });

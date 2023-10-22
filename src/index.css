@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Quicksand:wght@700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +9,9 @@ body {
   /* outline: 3px solid tomato; */
   display: flex;
   justify-content: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
 }
 
 @media (width > 1280px) {
@@ -15,5 +20,8 @@ body {
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, #57149a 0%, #2a144d 100%);
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "Noto Sans TC", sans-serif;
+    font-style: normal;
   }
 }

@@ -11,19 +11,21 @@ import Volume from "./Volume";
 import Navigation from "./Navigation/Navigation";
 import AlbumHotLists from "./AlbumLists/AlbumHotLists";
 import AlbumNewLists from "./AlbumLists/AlbumNewlist";
+import AlbumRecommendLists from "./AlbumLists/AlbumRecommendLists";
+import AlbumFeatureLists from "./AlbumLists/AlbumFeatureLists";
 import ControlerInfor from "./ControlerInfor";
 import Main from "./Main/Main";
-import classes from "./MusicPlayer.module.css";
 import NextPlay from "./NextPlay/NextPlay";
 import MyFavMain from "./MyFav/MyFavMain";
 import MyFavPlay from "./MyFav/MyFavPlay";
 import ProgressBar from "../UI/Icons/ProgressBar";
-import Favorite from "../UI/Icons/Favorite";
+import FavoriteChoose from "../UI/Icons/FavoriteChoose";
 import ControlerZoom from "../UI/Icons/ControlerZoom";
 import BackZoom from "../UI/Icons/BackZoom";
 import PictureBackCard from "../UI/Card/PictureBackCard";
 import BuildingPage from "./BuildingPage/BuildingPage";
 import { musicDataActions } from "../store/musicData";
+import classes from "./MusicPlayer.module.css";
 
 function MusicPlayer() {
   //Redux toolkit
@@ -80,8 +82,6 @@ function MusicPlayer() {
     window.addEventListener("resize", ScreenChange);
   }, [window.innerWidth]);
 
-  console.log("HI");
-
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
@@ -95,8 +95,6 @@ function MusicPlayer() {
   const playerRef = useRef(null);
 
   const onProgress = (progress) => {
-    console.log(playerRef);
-    console.log(progress);
     const playedSeconds = progress.playedSeconds;
     const formattedTime = formatTime(playedSeconds);
     const totalTime = playerRef.current.getDuration(); // 獲取總時長
@@ -108,7 +106,6 @@ function MusicPlayer() {
   };
 
   const onSeek = (seekTime) => {
-    console.log(playerRef);
     const totalDuration = playerRef.current.getDuration();
     const targetTime = seekTime * totalDuration;
     playerRef.current.seekTo(targetTime, "seconds");
@@ -122,42 +119,51 @@ function MusicPlayer() {
       dispatch(playControlsActions.play());
     }
 
+    if (favPlay && videoIndex === musicPlay.length - 1) {
+      return;
+    }
+
     if (allLoop && !random) {
-      const nextIndex = fav
-        ? (videoIndex + 1) % musicPlay.length
-        : (videoIndex + 1) % musicPlay.length;
+      // const nextIndex = fav
+      //   ? (videoIndex + 1) % musicPlay.length
+      //   : (videoIndex + 1) % musicPlay.length;
+      const nextIndex = (videoIndex + 1) % musicPlay.length;
       dispatch(playControlsActions.adjustVideoIndex(nextIndex));
       dispatch(playControlsActions.resetPlayed());
+      dispatch(
+        playControlsActions.adjustActiveNextPlay(musicPlay[videoIndex + 1].song)
+      );
       dispatch(playControlsActions.play());
     } else if (allLoop && random) {
       randomVideo();
     } else if (
       !allLoop &&
       random &&
-      videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
-    ) {
-      dispatch(playControlsActions.pause());
-    } else if (
-      loop &&
-      random &&
-      videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
+      videoIndex === musicPlay.length - 1
+      // videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
     ) {
       return;
     } else if (
       random &&
-      videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
+      videoIndex === musicPlay.length - 1
+      // videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
     ) {
       return;
     } else if (random) {
       randomVideo();
     } else if (
-      videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
+      videoIndex ===
+      musicPlay.length - 1
+      // videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
     ) {
       return;
     } else {
       const nextIndex = videoIndex + 1;
       dispatch(playControlsActions.adjustVideoIndex(nextIndex));
       dispatch(playControlsActions.resetPlayed());
+      dispatch(
+        playControlsActions.adjustActiveNextPlay(musicPlay[videoIndex + 1].song)
+      );
       dispatch(playControlsActions.play());
     }
   };
@@ -169,6 +175,9 @@ function MusicPlayer() {
         randomIndex = Math.floor(Math.random() * musicPlay.length);
       } while (randomIndex === videoIndex);
       dispatch(playControlsActions.adjustVideoIndex(randomIndex));
+      dispatch(
+        playControlsActions.adjustActiveNextPlay(musicPlay[randomIndex].song)
+      );
       dispatch(playControlsActions.play);
     } else {
       return;
@@ -179,10 +188,10 @@ function MusicPlayer() {
     dispatch(interfaceActions.closeMain());
   };
 
-  const closeFavHandler = () => {
-    dispatch(interfaceActions.closeFav());
-    dispatch(interfaceActions.openHome());
-  };
+  // const closeFavHandler = () => {
+  //   dispatch(interfaceActions.closeFav());
+  //   dispatch(interfaceActions.openHome());
+  // };
 
   return (
     <div
@@ -210,7 +219,14 @@ function MusicPlayer() {
           volume={volume}
           loop={loop}
           onProgress={onProgress}
-          onEnded={onNextVideo}
+          onEnded={() => {
+            onNextVideo();
+            {
+              videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
+                ? dispatch(playControlsActions.pause())
+                : null;
+            }
+          }}
         ></ReactPlayer>
       </div>
       {control ? <></> : <Navigation></Navigation>}
@@ -284,8 +300,8 @@ function MusicPlayer() {
               <div className={classes.albumList}>
                 <AlbumHotLists title={"熱門排行"}></AlbumHotLists>
                 <AlbumNewLists title={"最新專輯"}></AlbumNewLists>
-                <AlbumHotLists title={"為您推薦"}></AlbumHotLists>
-                <AlbumHotLists title={"藝人精選"}></AlbumHotLists>
+                <AlbumRecommendLists title={"為您推薦"}></AlbumRecommendLists>
+                <AlbumFeatureLists title={"藝人精選"}></AlbumFeatureLists>
               </div>
             </div>
           )}
@@ -373,8 +389,8 @@ function MusicPlayer() {
                 <div className={classes.albumList}>
                   <AlbumHotLists title={"熱門排行"}></AlbumHotLists>
                   <AlbumNewLists title={"最新專輯"}></AlbumNewLists>
-                  <AlbumHotLists title={"為您推薦"}></AlbumHotLists>
-                  <AlbumHotLists title={"藝人精選"}></AlbumHotLists>
+                  <AlbumRecommendLists title={"為您推薦"}></AlbumRecommendLists>
+                  <AlbumFeatureLists title={"藝人精選"}></AlbumFeatureLists>
                 </div>
               )}
             </div>
@@ -487,8 +503,8 @@ function MusicPlayer() {
                 <div className={classes.albumList}>
                   <AlbumHotLists title={"熱門排行"}></AlbumHotLists>
                   <AlbumNewLists title={"最新專輯"}></AlbumNewLists>
-                  <AlbumHotLists title={"為您推薦"}></AlbumHotLists>
-                  <AlbumHotLists title={"藝人精選"}></AlbumHotLists>
+                  <AlbumRecommendLists title={"為您推薦"}></AlbumRecommendLists>
+                  <AlbumFeatureLists title={"藝人精選"}></AlbumFeatureLists>
                 </div>
               )}
             </div>
@@ -537,8 +553,8 @@ function MusicPlayer() {
           <div className={classes.albumList}>
             <AlbumHotLists title={"熱門排行"}></AlbumHotLists>
             <AlbumNewLists title={"最新專輯"}></AlbumNewLists>
-            <AlbumHotLists title={"為您推薦"}></AlbumHotLists>
-            <AlbumHotLists title={"藝人精選"}></AlbumHotLists>
+            <AlbumRecommendLists title={"為您推薦"}></AlbumRecommendLists>
+            <AlbumFeatureLists title={"藝人精選"}></AlbumFeatureLists>
           </div>
         </div>
       )}
@@ -550,19 +566,19 @@ function MusicPlayer() {
             <Fragment>
               <div className={classes.controlInfor}>
                 <ControlerInfor></ControlerInfor>
-                <p className={classes.album}>
+                {/* <p className={classes.album}>
                   {Object.prototype.toString.call(controlerInfor) ===
                   "[object Array]"
                     ? favData.album
                     : controlerInfor.album}
-                </p>
-                <div className={classes.controlAndFav}>
-                  <Favorite className={classes.favorite}></Favorite>
-                  <Controler
-                    onNextVideo={onNextVideo}
-                    onSeek={onSeek}
-                  ></Controler>
-                </div>
+                </p> */}
+                {/* <div className={classes.controlAndFav}> */}
+                {/* <FavoriteChoose className={classes.favorite}></FavoriteChoose> */}
+                <Controler
+                  onNextVideo={onNextVideo}
+                  onSeek={onSeek}
+                ></Controler>
+                {/* </div> */}
               </div>
               <div className={classes.progress}>
                 <ProgressBar onSeek={onSeek} played={played}></ProgressBar>

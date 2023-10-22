@@ -6,7 +6,7 @@
   align-self: stretch;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: calc(100% - 6.5rem);
+  max-height: calc(100% - 20rem);
   width: 100%;
 }
 

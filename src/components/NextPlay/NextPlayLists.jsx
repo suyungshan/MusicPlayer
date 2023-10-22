@@ -6,7 +6,7 @@ function NextPlayLists(props) {
     <div className={classes.content}>
       {props.list.map((album) => (
         <NextPlayItem
-          key={album.number}
+          key={album.song}
           a={props.a}
           album={props.album}
           singer={props.singer}

@@ -1,7 +1,7 @@
 import MainInformation from "./MainInfromation";
 import AlbumPicture from "../AlbumPicture";
 import classes from "./Main.module.css";
-import PlayPause from "../../UI/Icons/PlayPause";
+import Play from "../../UI/Icons/Play";
 import PictureBackCard from "../../UI/Card/PictureBackCard";
 import { useSelector, useDispatch } from "react-redux";
 import { musicDataActions } from "../../store/musicData";
@@ -22,6 +22,10 @@ function Main() {
     dispatch(playControlsActions.play());
   };
 
+  const activeHandler = (id) => {
+    dispatch(playControlsActions.adjustActiveNextPlay(id)); //這裡
+  };
+
   const { album, a, singer, fulltime } = playingData;
 
   return (
@@ -39,10 +43,10 @@ function Main() {
                 fulltime={fulltime}
                 className={classes.information}
               ></MainInformation>
-              <PlayPause
+              <Play
                 className={classes.playButton}
                 stateHandler={playAlbumHandler}
-              ></PlayPause>
+              ></Play>
             </div>
           </div>
         </div>
@@ -65,10 +69,12 @@ function Main() {
                   fulltime={fulltime}
                   className={classes.information}
                 ></MainInformation>
-                <PlayPause
+                <Play
                   className={classes.playButton}
                   stateHandler={playAlbumHandler}
-                ></PlayPause>
+                  activeHandler={activeHandler}
+                  song={playingData.list[0].song}
+                ></Play>
               </div>
             </div>
           </div>

@@ -11,6 +11,34 @@
   align-self: stretch;
 }
 
+@media (width > 768px) {
+  .playItem:hover {
+    background: var(
+      --theme-color-secondary-light,
+      rgba(75, 46, 113, 1)
+    ); /* 鼠标悬停时的背景颜色 */
+    border-radius: 0.5rem;
+  }
+}
+
+.playItemActive {
+  /* outline: 3px solid tomato; */
+  box-sizing: border-box;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1.5rem;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: var(
+    --theme-color-secondary-light,
+    rgba(75, 46, 113, 1)
+  ); /* 鼠标悬停时的背景颜色 */
+  border-radius: 0.5rem;
+}
+
 .infor {
   /* outline: 3px solid tomato; */
   grid-column-start: 1;
@@ -32,18 +60,34 @@
   flex-shrink: 0;
 }
 
-.number {
+.first {
   /* outline: 3px solid tomato; */
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
   background: none;
   border: none;
+}
+
+.number {
+  /* outline: 3px solid tomato; */
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  /* Desktop/Body-14 */
-  font-family: Noto Sans TC;
   font-size: 0.875rem;
-  font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 1.3125rem */
+  line-height: 150%;
+}
+
+.nextPlayIcon {
+  /* outline: 3px solid tomato; */
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  background: none;
+  border: none;
 }
 
 .picture {
@@ -78,11 +122,7 @@
   display: flex;
   align-self: stretch;
   color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  /* Desktop/Body-14 */
-  font-family: Noto Sans TC;
   font-size: 0.875rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 1.3125rem */
   /* height: 1.3125rem; */
@@ -92,12 +132,8 @@
   /* outline: 3px solid tomato; */
   display: flex;
   align-self: stretch;
-  color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  /* Desktop/text-hint-12 */
-  font-family: Noto Sans TC;
+  color: var(--theme-color-primary-lightest, #a49bb4);
   font-size: 0.75rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 125%; /* 0.9375rem */
   /* height: 0.9375rem; */
@@ -109,11 +145,8 @@
   grid-column-end: 6;
   height: 0.9375rem;
   flex-shrink: 0;
-  color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: Noto Sans TC;
+  color: var(--theme-color-primary-lightest, #a49bb4);
   font-size: 0.75rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 125%;
   align-self: center;
@@ -134,22 +167,54 @@
 
 .time {
   /* outline: 3px solid tomato; */
-  color: var(--neutral-color-white, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: Noto Sans TC;
+  color: var(--theme-color-primary-lightest, #a49bb4);
   font-size: 0.75rem;
-  font-style: normal;
+
   font-weight: 400;
   line-height: 125%; /* 0.9375rem */
 }
+
+/* .favButton {
+  outline: 3px solid tomato;
+  display: none;
+}
+
+.show {
+  outline: 3px solid tomato;
+  background: none;
+  border: none;
+  display: flex;
+} */
 
 .favButton {
   /* outline: 3px solid tomato; */
   background: none;
   border: none;
+  display: flex;
+  position: relative;
 }
 
+.favButtonHide {
+  display: none;
+}
+
+/* .favButton::before {
+  outline: 3px solid tomato;
+  content: "";
+  position: absolute; 
+  top: 0;
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: var(--theme-color-secondary-default, #2a144d);
+}
+
+.playItem:hover .favButton::before {
+  display: none;
+} */
+
 .favorite {
+  /* outline: 3px solid tomato; */
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -162,6 +227,11 @@
     gap: 0.75rem;
     flex-shrink: 0;
     width: 100%;
+  }
+
+  .favButton::before {
+    /* outline: 3px solid tomato; */
+    background: var(--theme-color-secondary-default, #140330);
   }
 }
 
@@ -214,7 +284,6 @@
   .singer {
     /* outline: 3px solid tomato; */
     color: var(--theme-color-secondary-lightest, #a49bb4);
-    font-feature-settings: "clig" off, "liga" off;
   }
 
   .picture {

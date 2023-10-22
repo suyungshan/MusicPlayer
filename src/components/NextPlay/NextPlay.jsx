@@ -1,4 +1,3 @@
-import Title from "../Title";
 import NextPlayLists from "./NextPlayLists";
 import { useSelector } from "react-redux";
 import classes from "./NextPlay.module.css";
