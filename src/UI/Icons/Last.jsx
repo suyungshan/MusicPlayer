@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 function Last(props) {
+  const videoIndex = useSelector((state) => state.playControls.videoIndex);
+
   return (
     <button onClick={props.onLastVideo} className={props.className}>
       <svg
@@ -10,18 +14,18 @@ function Last(props) {
       >
         <path
           d="M18 19.5L9 12.5L18 5.5L18 19.5Z"
-          fill="#9E9E9E"
-          stroke="#9E9E9E"
-          strokeWidth="1.70667"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          fill={videoIndex !== 0 ? "white" : "#A49BB4"}
+          stroke={videoIndex !== 0 ? "white" : "#A49BB4"}
+          strokewidth="1.70667"
+          strokelinecap="round"
+          strokelinejoin="round"
         />
         <path
           d="M6 18.5L6 6.5"
-          stroke="#9E9E9E"
-          strokeWidth="1.70667"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          stroke={videoIndex !== 0 ? "white" : "#A49BB4"}
+          strokewidth="1.70667"
+          strokelinecap="round"
+          strokelinejoin="round"
         />
       </svg>
     </button>

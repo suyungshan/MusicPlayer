@@ -50,7 +50,9 @@ function NavigationList() {
         <div className={classes.icon}>
           <HomeNavigation using={home}></HomeNavigation>
         </div>
-        <p className={home ? classes.name : classes.nameUnusing}>Home</p>
+        <p className={home ? `${classes.name}` : `${classes.nameUnusing}`}>
+          Home
+        </p>
       </button>
       <button className={classes.button} onClick={favHandler}>
         <div className={classes.icon}>

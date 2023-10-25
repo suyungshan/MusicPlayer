@@ -1,6 +1,9 @@
 import { Fragment } from "react";
+import { useSelector } from "react-redux";
 
 function Loop(props) {
+  const loop = useSelector((state) => state.playControls.loop);
+  const allLoop = useSelector((state) => state.playControls.allLoop);
   return (
     <Fragment>
       {props.loop === false && props.allLoop === false ? (
@@ -8,46 +11,129 @@ function Loop(props) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
-            height="25"
-            viewBox="0 0 24 25"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
           >
-            <g opacity="0.6">
-              <path
-                d="M16 4.11133L19 7.11131L16 10.1113"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M5.49951 11.6103V10.1103C5.49951 9.31469 5.81558 8.55163 6.37819 7.98903C6.94079 7.42642 7.70385 7.11035 8.49949 7.11035H18.9994"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M8.49949 20.6113L5.49951 17.6113L8.49949 14.6113"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M18.9994 13.1113V14.6113C18.9994 15.407 18.6833 16.17 18.1207 16.7326C17.5581 17.2952 16.7951 17.6113 15.9994 17.6113H5.49951"
-                stroke="white"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </g>
+            <path
+              d="M16 3.61157L19 6.61155L16 9.61153"
+              stroke="#A49BB4"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M5.49951 11.1103V9.61033C5.49951 8.81469 5.81558 8.05163 6.37819 7.48903C6.94079 6.92642 7.70385 6.61035 8.49949 6.61035H18.9994"
+              stroke="#A49BB4"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M8.49949 20.1115L5.49951 17.1116L8.49949 14.1116"
+              stroke="#A49BB4"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M18.9994 12.6113V14.1113C18.9994 14.907 18.6833 15.67 18.1207 16.2326C17.5581 16.7952 16.7951 17.1113 15.9994 17.1113H5.49951"
+              stroke="#A49BB4"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
           </svg>
         </button>
       ) : props.loop === true && props.allLoop === false ? (
-        <button onClick={props.allLoopHandler}>Loop</button>
+        <button onClick={props.allLoopHandler} className={props.className}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M16 3.61157L19 6.61155L16 9.61153"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M5.49951 11.1103V9.61033C5.49951 8.81469 5.81558 8.05163 6.37819 7.48903C6.94079 6.92642 7.70385 6.61035 8.49949 6.61035H18.9994"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <text
+              x="50%"
+              y="50%"
+              dominantBaseline="middle"
+              textAnchor="middle"
+              fill="#E8308C"
+              fontSize="0.5rem"
+              fontFamily=" Quicksand"
+            >
+              1
+            </text>
+            <path
+              d="M8.49949 20.1115L5.49951 17.1116L8.49949 14.1116"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M18.9994 12.6113V14.1113C18.9994 14.907 18.6833 15.67 18.1207 16.2326C17.5581 16.7952 16.7951 17.1113 15.9994 17.1113H5.49951"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+          </svg>
+        </button>
       ) : props.loop === false && props.allLoop === true ? (
-        <button onClick={props.noneHandler}>AllLoop</button>
+        <button onClick={props.noneHandler} className={props.className}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M16 3.61157L19 6.61155L16 9.61153"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M5.49951 11.1103V9.61033C5.49951 8.81469 5.81558 8.05163 6.37819 7.48903C6.94079 6.92642 7.70385 6.61035 8.49949 6.61035H18.9994"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M8.49949 20.1115L5.49951 17.1116L8.49949 14.1116"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+            <path
+              d="M18.9994 12.6113V14.1113C18.9994 14.907 18.6833 15.67 18.1207 16.2326C17.5581 16.7952 16.7951 17.1113 15.9994 17.1113H5.49951"
+              stroke="#E8308C"
+              strokewidth="1.5"
+              strokelinecap="round"
+              strokelinejoin="round"
+            />
+          </svg>
+        </button>
       ) : (
         <button>Broken</button>
       )}

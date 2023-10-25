@@ -41,8 +41,8 @@ function AlbumItem(props) {
         <AlbumPicture picture={props.a}></AlbumPicture>
       </div>
       <div className={classes.infor}>
-        <p className={classes.album}>{props.album}</p>
-        <p className={classes.singer}>{props.singer}</p>
+        <p className={`body-sm ${classes.album}`}>{props.album}</p>
+        <p className={`text-hint ${classes.singer}`}>{props.singer}</p>
       </div>
     </button>
   );

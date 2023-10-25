@@ -1,5 +1,5 @@
 .update {
-  color: var(--theme-color-secondary-lighter, #8c7ca9);
+  color: var(--primary_lighter);
   text-align: center;
   font-size: 1.125rem;
   font-weight: 500;

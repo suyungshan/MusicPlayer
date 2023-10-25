@@ -1,7 +1,4 @@
-import { useSelector } from "react-redux";
-
 function NextPlayIcon(props) {
-  const favPlay = useSelector((state) => state.playControls.favPlay);
   return (
     <button
       onClick={() => {

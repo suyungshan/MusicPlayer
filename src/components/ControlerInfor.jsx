@@ -35,7 +35,7 @@ function ControlerInfor() {
   };
 
   const favListHandler = () => {
-    if (!existingUrl) {
+    if (!existingSong) {
       newFavorites.push({
         a: controlerInfor.a,
         album: controlerInfor.album,
@@ -49,7 +49,7 @@ function ControlerInfor() {
       dispatch(playControlsActions.addToFav());
     } else {
       const deleteFavlist = favList.filter((favListItem) => {
-        return favListItem.url !== controlerInfor.url;
+        return favListItem.song !== controlerInfor.song;
       });
       dispatch(musicDataActions.updateFavList(deleteFavlist));
     }
@@ -78,10 +78,14 @@ function ControlerInfor() {
           }
         ></AlbumPicture>
         <div className={control ? classes.detailcontrol : classes.detail}>
-          <div className={control ? classes.songcontrol : classes.song}>
-            {musicPlay[videoIndex].song}
+          <div className={control ? `h2 ${classes.songcontrol}` : classes.song}>
+            {musicPlay.length > 0 ? musicPlay[videoIndex].song : null}
           </div>
-          <p className={control ? classes.singerControl : classes.singer}>
+          <p
+            className={
+              control ? classes.singerControl : `text-hint ${classes.singer}`
+            }
+          >
             {Object.prototype.toString.call(controlerInfor) === "[object Array]"
               ? favData.singer
               : controlerInfor.singer}

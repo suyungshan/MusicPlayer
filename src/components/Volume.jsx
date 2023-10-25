@@ -1,6 +1,6 @@
 import VolumeIcon from "../UI/Icons/VolumeIcon";
 import VolumeProgress from "../UI/Icons/VolumeProgress";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { playControlsActions } from "../store/playControls";
 import classes from "./Volume.module.css";
 

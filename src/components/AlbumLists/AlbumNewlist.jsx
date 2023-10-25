@@ -10,7 +10,7 @@ function AlbumNewLists(props) {
 
   return (
     <div className={classes.album}>
-      <Title className={classes.title} title={props.title}></Title>
+      <Title className={`body-sm ${classes.title}`} title={props.title}></Title>
       {midScreen || smallScreen ? (
         <div className={classes.list}>
           {albumNew.map((album) => (

@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 function Random(props) {
+  const random = useSelector((state) => state.playControls.random);
+
   return (
     <button onClick={props.randomHandler} className={props.className}>
       <svg
@@ -9,32 +13,32 @@ function Random(props) {
         fill="none"
       >
         <path
-          d="M14.4161 15.3886L16.9995 12.8051L14.4161 10.2217"
-          stroke="#9E9E9E"
-          strokeWidth="1.60344"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M13.916 15.3886L16.4995 12.8051L13.916 10.2217"
+          stroke={random ? "#E8308C" : "#A49BB4"}
+          stroke-width="1.60344"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
         <path
-          d="M14.4161 1.61035L16.9995 4.19381L14.4161 6.77726"
-          stroke="#9E9E9E"
-          strokeWidth="1.60344"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M13.916 1.61035L16.4995 4.19381L13.916 6.77726"
+          stroke={random ? "#E8308C" : "#A49BB4"}
+          stroke-width="1.60344"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
         <path
-          d="M17 4.19336H13.5554C12.5861 4.19336 11.6916 4.51366 10.9719 5.0542M1.49927 12.8049H4.94387C5.91319 12.8049 6.8077 12.4846 7.52733 11.944"
-          stroke="#9E9E9E"
-          strokeWidth="1.60344"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M16.5 4.19336H13.0554C12.0861 4.19336 11.1916 4.51366 10.4719 5.0542M0.999268 12.8049H4.44387C5.41319 12.8049 6.3077 12.4846 7.02733 11.944"
+          stroke={random ? "#E8308C" : "#A49BB4"}
+          stroke-width="1.60344"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
         <path
-          d="M1.49927 4.19336H4.94387C7.32188 4.19336 9.24963 6.12111 9.24963 8.49912C9.24963 10.8771 11.1774 12.8049 13.5554 12.8049H17"
-          stroke="#9E9E9E"
-          strokeWidth="1.60344"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M0.999268 4.19336H4.44387C6.82188 4.19336 8.74963 6.12111 8.74963 8.49912C8.74963 10.8771 10.6774 12.8049 13.0554 12.8049H16.5"
+          stroke={random ? "#E8308C" : "#A49BB4"}
+          stroke-width="1.60344"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
       </svg>
     </button>

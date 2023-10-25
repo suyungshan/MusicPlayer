@@ -164,7 +164,7 @@ function Controler(props) {
           <Play
             stateHandler={playHandler}
             activeHandler={activeHandler}
-            song={musicPlay[0].song}
+            song={musicPlay.length > 0 ? musicPlay[videoIndex].song : []}
             className={classes.playPause}
           ></Play>
         )}

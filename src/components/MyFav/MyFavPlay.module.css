@@ -7,7 +7,7 @@
   gap: 1rem;
   align-self: stretch;
   height: 25.8125rem;
-  background: var(--theme-color-secondary-default, #2a144d);
+  background: var(--primary_default);
   grid-column-start: 1;
   grid-column-end: -1;
 }

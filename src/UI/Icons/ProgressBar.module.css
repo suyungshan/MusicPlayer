@@ -8,20 +8,20 @@
   /* outline: 3px solid tomato; */
   height: 1rem;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0); /* 為了解釋方便所設定 */
+  background-color: transparent; /* 為了解釋方便所設定 */
 }
 
 .progress input[type="range"]::-webkit-slider-runnable-track {
   height: 0.15rem;
   width: 100%;
-  background: #aaa;
+  background: var(--primary_lightest);
 }
 
 .progress input[type="range"]::-webkit-slider-thumb {
   height: 0.5rem;
   width: 0.5rem;
   margin-top: -3px; /* 會受到寬高影響定位，需微調 */
-  background-color: white; /* 為了解釋方便所設定 */
+  background-color: var(--text_white); /* 為了解釋方便所設定 */
   border-radius: 50%;
 }
 
@@ -36,20 +36,20 @@
   /* outline: 3px solid tomato; */
   height: 1rem;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0); /* 為了解釋方便所設定 */
+  background-color: transparent; /* 為了解釋方便所設定 */
 }
 
 .progressControl input[type="range"]::-webkit-slider-runnable-track {
   height: 0.15rem;
   width: 100%;
-  background: #aaa;
+  background: var(--primary_lightest);
 }
 
 .progressControl input[type="range"]::-webkit-slider-thumb {
   height: 0.5rem;
   width: 0.5rem;
   margin-top: -3px; /* 會受到寬高影響定位，需微調 */
-  background-color: white; /* 為了解釋方便所設定 */
+  background-color: var(--text_white); /* 為了解釋方便所設定 */
   border-radius: 50%;
 }
 
@@ -64,21 +64,21 @@
     /* outline: 3px solid tomato; */
     width: 100%;
     height: fit-content;
-    background-color: rgba(0, 0, 0, 0); /* 為了解釋方便所設定 */
+    background-color: transparent; /* 為了解釋方便所設定 */
   }
 
   .progress input[type="range"]::-webkit-slider-runnable-track {
     /* outline: 3px solid tomato; */
     height: 0.15rem;
     width: 100%;
-    background: #aaa;
+    background: var(--primary_lightest);
   }
 
   .progress input[type="range"]::-webkit-slider-thumb {
     /* outline: 3px solid tomato; */
     height: 0.5rem;
     width: 0.5rem;
-    background-color: white; /* 為了解釋方便所設定 */
+    background-color: var(--text_white); /* 為了解釋方便所設定 */
     border-radius: 50%;
   }
 }

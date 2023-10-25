@@ -8,9 +8,7 @@ function Navigation() {
 
   return (
     <div className={classes.navigation}>
-      {smallScreen ? (
-        <></>
-      ) : (
+      {smallScreen ? null : (
         <div className={classes.title}>
           <Title className={classes.name} title={"SAM"}></Title>
           <Title className={classes.music} title={"MUSIC"}></Title>

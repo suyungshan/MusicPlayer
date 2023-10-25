@@ -1,0 +1,7 @@
+.className {
+  outline: 3px solid tomato;
+}
+
+.className:hover {
+  transform: scale(1.1);
+}

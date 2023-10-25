@@ -7,6 +7,7 @@ import classes from "./NextPlayItem.module.css";
 import NextPlayIcon from "../../UI/Icons/NextPlayIcon";
 import { Fragment, useState } from "react";
 import NextPauseIcon from "../../UI/Icons/NextPauseIcon";
+import FacebookPlayer from "react-player/facebook";
 
 function NextPlayItem(props) {
   const nextPlay = useSelector((state) => state.musicData.nextPlay);
@@ -23,9 +24,6 @@ function NextPlayItem(props) {
   const [showHiddenPlayPause, setShowHiddenPlayPause] = useState(false);
   const [showHiddenFav, setShowHiddenFav] = useState(false);
   const newFavorites = [...favList];
-  const existingUrl = newFavorites.find((favListItem) => {
-    return favListItem.url === props.url;
-  });
   const existingSong = newFavorites.find((favListItem) => {
     return favListItem.song === props.song;
   });
@@ -57,7 +55,7 @@ function NextPlayItem(props) {
   };
 
   const favListHandler = () => {
-    if (!existingUrl) {
+    if (!existingSong) {
       newFavorites.push({
         a: props.a,
         album: props.album,
@@ -69,6 +67,8 @@ function NextPlayItem(props) {
       });
       dispatch(musicDataActions.updateFavList(newFavorites));
       dispatch(playControlsActions.addToFav());
+    } else if (musicPlay[videoIndex].song === props.song) {
+      return;
     } else {
       const deleteFavlist = favList.filter((favListItem) => {
         return favListItem.url !== props.url;
@@ -106,13 +106,13 @@ function NextPlayItem(props) {
           </div>
           <div className={classes.actor}>
             <p className={classes.song}>{props.song}</p>
-            <p className={classes.singer}>{props.singer}</p>
+            <p className={`text-hint ${classes.singer}`}>{props.singer}</p>
           </div>
         </div>
-        <p className={classes.album}>{props.album}</p>
+        <p className={`text-hint ${classes.album}`}>{props.album}</p>
       </button>
       <div className={classes.last}>
-        <p className={classes.time}>{props.time}</p>
+        <p className={`text-hint ${classes.time}`}>{props.time}</p>
         <button className={classes.favButton} onClick={favListHandler}>
           <FavoriteChoose
             className={classes.favorite}
@@ -159,16 +159,18 @@ function NextPlayItem(props) {
           </div>
           <div className={classes.actor}>
             <p className={classes.song}>{props.song}</p>
-            <p className={classes.singer}>{props.singer}</p>
+            <p className={`text-hint ${classes.singer}`}>{props.singer}</p>
           </div>
         </div>
       </div>
-      <p className={classes.album}>{props.album}</p>
+      <p className={`text-hint ${classes.album}`}>{props.album}</p>
       <div className={classes.last}>
-        <p className={classes.time}>{props.time}</p>
+        <p className={`text-hint ${classes.time}`}>{props.time}</p>
         <button
           className={
             showHiddenPlayPause || showHiddenFav
+              ? classes.favButton
+              : existingSong
               ? classes.favButton
               : classes.favButtonHide
           }

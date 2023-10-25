@@ -23,7 +23,7 @@ function Main() {
   };
 
   const activeHandler = (id) => {
-    dispatch(playControlsActions.adjustActiveNextPlay(id)); //這裡
+    dispatch(playControlsActions.adjustActiveNextPlay(id));
   };
 
   const { album, a, singer, fulltime } = playingData;

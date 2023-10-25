@@ -1,3 +1,5 @@
+import classes from "./Play.module.css";
+
 function Play(props) {
   return (
     <button
@@ -7,13 +9,14 @@ function Play(props) {
           props.activeHandler ? props.activeHandler(props.song) : null;
         }
       }}
+      // className={props.className}
       className={props.className}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="33"
-        viewBox="0 0 32 33"
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
         fill="none"
       >
         <path

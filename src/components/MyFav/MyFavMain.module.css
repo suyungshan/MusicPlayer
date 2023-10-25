@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 1.5rem;
-  background: linear-gradient(180deg, #57149a 0%, #2a144d 100%);
+  background: var(--gradient_default);
   box-sizing: border-box;
   border-radius: 1rem 1rem 0rem 0rem;
 }
@@ -60,6 +60,10 @@
   border: none;
 }
 
+.playPause:hover {
+  transform: scale(1.1);
+}
+
 @media (width <= 1200px) {
   .main {
     /* outline: 3px solid tomato; */
@@ -106,7 +110,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    color: white;
+    color: var(--text_white);
     width: fit-content;
     height: auto;
   }

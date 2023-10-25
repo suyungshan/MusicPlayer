@@ -1,10 +1,9 @@
 .album {
   /* outline: 3px solid tomato; */
-  color: var(--neutral-color-white, #fff);
+  color: var(--text_white);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 125%;
-  color: rgba(255, 255, 255, 1);
   position: absolute;
   left: 50%;
   top: 1.5rem;
@@ -18,7 +17,7 @@
   width: 100vw;
   max-width: 80rem;
   height: 100vh;
-  background: var(--theme-color-secondary-darker, #140330);
+  background: var(--primary_darker);
 }
 
 .centerUnFinish {
@@ -28,7 +27,7 @@
   width: 100vw;
   max-width: 80rem;
   height: 100vh;
-  background: var(--theme-color-secondary-darker, #140330);
+  background: var(--primary_darker);
 }
 
 .musicPlayer {
@@ -82,7 +81,7 @@
   overflow-x: hidden;
   height: calc(100vh - 6.5rem);
   border-radius: 1rem 1rem 0rem 0rem;
-  background: var(--theme-color-secondary-default, #2a144d);
+  background: var(--primary_default);
   grid-column-start: 8;
   grid-column-end: 13;
 }
@@ -92,10 +91,10 @@
   width: 0.2rem; /* 设置滚动条宽度 */
 }
 .albumList::-webkit-scrollbar-thumb {
-  background-color: gray; /* 设置滚动条滑块颜色 */
+  background-color: var(--primary_lightest);
 }
 .albumList::-webkit-scrollbar-track {
-  background-color: white; /* 设置滚动条背景颜色 */
+  background-color: transparent; /* 设置滚动条背景颜色 */
 }
 
 .unFinish {
@@ -117,8 +116,8 @@
   padding: 0.5rem;
   justify-content: space-between;
   align-items: center;
-  background: var(--theme-color-secondary-dark, #1b0643);
-  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.5);
+  background: var(--primary_dark);
+  box-shadow: 0px -1px 0px 0px var(--primary_lightest);
   width: 79rem;
 }
 
@@ -133,9 +132,9 @@
 
 .back {
   /* outline: 3px solid tomato; */
-  background: rgb(0, 0, 0);
+  background: var(--text_black);
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: relative;
 }
@@ -214,8 +213,8 @@
     padding: 0.5rem;
     justify-content: space-between;
     align-items: center;
-    background: var(--theme-color-secondary-dark, #1b0643);
-    box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.5);
+    background: var(--primary_dark);
+    box-shadow: 0px -1px 0px 0px var(--primary_lightest);
     width: auto;
   }
 }
@@ -228,7 +227,7 @@
     width: 100vw;
     height: calc(100% + 4.5rem);
     max-width: 100%;
-    background: var(--theme-color-secondary-darker, #140330);
+    background: var(--primary_darker);
   }
 
   .display {
@@ -246,10 +245,7 @@
     width: 100vw;
     height: calc(100% + 4.5rem);
     max-width: 100%;
-    background: var(
-      --gradiant-color-gradient-dark,
-      linear-gradient(180deg, #541494 0%, #140330 33.33%)
-    );
+    background: var(--gradient_dark);
   }
 
   .centerFav {
@@ -258,10 +254,7 @@
     width: 100vw;
     height: calc(100% + 4.5rem);
     max-width: 100%;
-    background: var(
-      --gradiant-color-gradient-dark,
-      linear-gradient(180deg, #541494 0%, #140330 33.33%)
-    );
+    background: var(--gradient_dark);
   }
 
   .mainPlay {
@@ -285,7 +278,7 @@
     /* height: calc(100% - 6.5rem); */
     height: 100%;
     border-radius: 1rem 1rem 0rem 0rem;
-    background: var(--theme-color-secondary-default, #2a144d);
+    background: var(--primary_default);
   }
 
   .fav {
@@ -319,13 +312,13 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 9999; /* 設定一個足夠高的 z-index 值，以確保它永遠顯示在最上層 */
+    z-index: 9999;
     display: flex;
     padding: 0.5rem;
     justify-content: space-between;
     align-items: center;
-    background: var(--theme-color-secondary-dark, #1b0643);
-    box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.5);
+    background: var(--primary_dark);
+    box-shadow: 0px -1px 0px 0px var(--primary_lightest);
     width: auto;
   }
 
@@ -366,9 +359,9 @@
 
   .back {
     /* outline: 3px solid tomato; */
-    background: rgb(0, 0, 0);
+    background: var(--text_black);
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     position: relative;
   }
@@ -457,7 +450,7 @@
     max-width: none;
     max-height: none;
     border-radius: 1rem 1rem 0rem 0rem;
-    background: var(--theme-color-secondary-default, #2a144d);
+    background: var(--primary_default);
   }
 
   .fixedControlBar {
@@ -471,8 +464,8 @@
     padding: 0.5rem;
     justify-content: space-between;
     align-items: center;
-    background: var(--theme-color-secondary-dark, #1b0643);
-    box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.5);
+    background: var(--primary_dark);
+    box-shadow: 0px -1px 0px 0px var(--primary_lightest);
     width: auto;
   }
 
@@ -560,7 +553,7 @@
     max-width: 100%;
     height: calc(100% + 8rem);
     max-height: max-content;
-    background: var(--theme-color-secondary-darker, #140330);
+    background: var(--primary_darker);
   }
 
   .centerMain {
@@ -569,10 +562,7 @@
     width: 100vw;
     height: calc(100% + 8rem);
     max-width: 100%;
-    background: var(
-      --gradiant-color-gradient-dark,
-      linear-gradient(180deg, #541494 0%, #140330 33.33%)
-    );
+    background: var(--gradient_dark);
   }
 
   .centerFav {
@@ -581,10 +571,7 @@
     width: 100vw;
     height: calc(100% + 22rem);
     max-width: 100%;
-    background: var(
-      --gradiant-color-gradient-dark,
-      linear-gradient(180deg, #541494 0%, #140330 33.33%)
-    );
+    background: var(--gradient_dark);
   }
 
   .display {
@@ -625,7 +612,7 @@
     align-items: flex-start;
     gap: 2rem;
     margin: 0;
-    background: var(--theme-color-secondary-darker, #140330);
+    background: var(--primary_darker);
     border-radius: 0;
     overflow: none;
     max-width: auto;
@@ -691,14 +678,14 @@
   .fixedControlBar {
     /* outline: 3px solid tomato; */
     position: fixed;
-    bottom: 4rem; /* 將元素底部對齊父元素的底部 */
-    left: 0; /* 將元素左邊對齊父元素的左邊 */
-    right: 0; /* 將元素右邊對齊父元素的右邊 */
-    z-index: 9999; /* 設定一個足夠高的 z-index 值，以確保它永遠顯示在最上層 */
+    bottom: 4rem;
+    left: 0;
+    right: 0;
+    z-index: 9999;
     display: flex;
     padding: 0.5rem 0.5rem 0 0.5rem;
     flex-direction: column;
-    background: var(--theme-color-secondary-light, #4b2e71);
+    background: var(--primary_light);
     justify-content: none;
     align-items: flex-start;
     box-shadow: none;
@@ -714,14 +701,6 @@
     align-self: stretch;
     gap: 0.5rem;
   }
-
-  /* .controlAndFav {
-    outline: 3px solid tomato;
-    display: flex;
-    width: 3rem;
-    justify-content: space-between;
-    align-items: center;
-  } */
 
   .favButton {
     /* outline: 3px solid tomato; */

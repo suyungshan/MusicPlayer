@@ -59,6 +59,8 @@ function MusicPlayer() {
   const favList = useSelector((state) => state.musicData.favList);
   const dispatch = useDispatch();
 
+  console.log(favList);
+
   useEffect(() => {
     const ScreenChange = () => {
       if (window.innerWidth > 1200) {
@@ -119,47 +121,29 @@ function MusicPlayer() {
       dispatch(playControlsActions.play());
     }
 
-    if (favPlay && videoIndex === musicPlay.length - 1) {
-      return;
-    }
-
     if (allLoop && !random) {
-      // const nextIndex = fav
-      //   ? (videoIndex + 1) % musicPlay.length
-      //   : (videoIndex + 1) % musicPlay.length;
       const nextIndex = (videoIndex + 1) % musicPlay.length;
       dispatch(playControlsActions.adjustVideoIndex(nextIndex));
       dispatch(playControlsActions.resetPlayed());
       dispatch(
-        playControlsActions.adjustActiveNextPlay(musicPlay[videoIndex + 1].song)
+        playControlsActions.adjustActiveNextPlay(musicPlay[nextIndex].song)
       );
       dispatch(playControlsActions.play());
     } else if (allLoop && random) {
       randomVideo();
-    } else if (
-      !allLoop &&
-      random &&
-      videoIndex === musicPlay.length - 1
-      // videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
-    ) {
+    } else if (!allLoop && random && videoIndex === musicPlay.length - 1) {
       return;
-    } else if (
-      random &&
-      videoIndex === musicPlay.length - 1
-      // videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
-    ) {
+    } else if (random && videoIndex === musicPlay.length - 1) {
       return;
     } else if (random) {
       randomVideo();
     } else if (
-      videoIndex ===
-      musicPlay.length - 1
-      // videoIndex === (fav ? musicPlay.length - 1 : musicPlay.length - 1)
+      videoIndex === musicPlay.length - 1 ||
+      (favPlay && videoIndex === musicPlay.length - 1)
     ) {
       return;
     } else {
-      const nextIndex = videoIndex + 1;
-      dispatch(playControlsActions.adjustVideoIndex(nextIndex));
+      dispatch(playControlsActions.adjustVideoIndex(videoIndex + 1));
       dispatch(playControlsActions.resetPlayed());
       dispatch(
         playControlsActions.adjustActiveNextPlay(musicPlay[videoIndex + 1].song)
@@ -187,11 +171,6 @@ function MusicPlayer() {
   const closeMainHandler = () => {
     dispatch(interfaceActions.closeMain());
   };
-
-  // const closeFavHandler = () => {
-  //   dispatch(interfaceActions.closeFav());
-  //   dispatch(interfaceActions.openHome());
-  // };
 
   return (
     <div
@@ -229,7 +208,7 @@ function MusicPlayer() {
           }}
         ></ReactPlayer>
       </div>
-      {control ? <></> : <Navigation></Navigation>}
+      {control ? null : <Navigation></Navigation>}
       {!smallScreen && !midScreen && fav && !home && !profile && !setting ? (
         <Fragment>
           {control ? (
@@ -558,27 +537,16 @@ function MusicPlayer() {
           </div>
         </div>
       )}
-      {control ? (
-        <></>
-      ) : (
+      {control ? null : (
         <div className={classes.fixedControlBar}>
           {smallScreen ? (
             <Fragment>
               <div className={classes.controlInfor}>
                 <ControlerInfor></ControlerInfor>
-                {/* <p className={classes.album}>
-                  {Object.prototype.toString.call(controlerInfor) ===
-                  "[object Array]"
-                    ? favData.album
-                    : controlerInfor.album}
-                </p> */}
-                {/* <div className={classes.controlAndFav}> */}
-                {/* <FavoriteChoose className={classes.favorite}></FavoriteChoose> */}
                 <Controler
                   onNextVideo={onNextVideo}
                   onSeek={onSeek}
                 ></Controler>
-                {/* </div> */}
               </div>
               <div className={classes.progress}>
                 <ProgressBar onSeek={onSeek} played={played}></ProgressBar>
@@ -593,7 +561,7 @@ function MusicPlayer() {
           )}
         </div>
       )}
-      {control ? <></> : smallScreen ? <Navigation></Navigation> : <></>}
+      {control ? null : smallScreen ? <Navigation></Navigation> : null}
     </div>
   );
 }

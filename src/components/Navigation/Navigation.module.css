@@ -10,14 +10,14 @@
   align-items: center;
   gap: 2rem;
   flex-shrink: 0;
-  background: var(--theme-color-secondary-dark, #1b0643);
+  background: var(--primary_dark);
   box-sizing: border-box;
 }
 
 .title {
   /* outline: 3px solid tomato; */
   flex-shrink: 0;
-  color: white;
+  color: var(--text_white);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +26,7 @@
 
 .name {
   /* outline: 3px solid tomato; */
-  color: var(--neutral-color-white, #fff);
+  color: var(--text_white);
   font-family: "Quicksand", sans-serif;
   text-align: center;
   font-size: 2rem;
@@ -37,7 +37,7 @@
 
 .music {
   /* outline: 3px solid tomato; */
-  color: var(--neutral-color-white, #fff);
+  color: var(--text_white);
   font-family: "Quicksand", sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -58,7 +58,7 @@
     align-items: center;
     gap: 2rem;
     flex-shrink: 0;
-    background: var(--theme-color-secondary-dark, #1b0643);
+    background: var(--primary_dark);
   }
 }
 
@@ -78,6 +78,6 @@
     left: 0;
     right: 0;
     z-index: 9999;
-    background: var(--theme-color-secondary-dark, #1b0643);
+    background: var(--primary_dark);
   }
 }

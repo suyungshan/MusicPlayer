@@ -13,10 +13,7 @@
 
 @media (width > 768px) {
   .playItem:hover {
-    background: var(
-      --theme-color-secondary-light,
-      rgba(75, 46, 113, 1)
-    ); /* 鼠标悬停时的背景颜色 */
+    background: var(--primary_light);
     border-radius: 0.5rem;
   }
 }
@@ -32,10 +29,7 @@
   align-items: center;
   flex-shrink: 0;
   align-self: stretch;
-  background: var(
-    --theme-color-secondary-light,
-    rgba(75, 46, 113, 1)
-  ); /* 鼠标悬停时的背景颜色 */
+  background: var(--primary_light);
   border-radius: 0.5rem;
 }
 
@@ -75,7 +69,7 @@
 
 .number {
   /* outline: 3px solid tomato; */
-  color: var(--neutral-color-white, #fff);
+  color: var(--text_white);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 150%;
@@ -103,7 +97,7 @@
   /* outline: 3px solid tomato; */
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+  object-fit: cover;
   object-position: center;
 }
 
@@ -121,7 +115,7 @@
   /* outline: 3px solid tomato; */
   display: flex;
   align-self: stretch;
-  color: var(--neutral-color-white, #fff);
+  color: var(--text_white);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 150%; /* 1.3125rem */
@@ -132,11 +126,10 @@
   /* outline: 3px solid tomato; */
   display: flex;
   align-self: stretch;
-  color: var(--theme-color-primary-lightest, #a49bb4);
+  color: var(--primary_lightest);
   font-size: 0.75rem;
   font-weight: 400;
-  line-height: 125%; /* 0.9375rem */
-  /* height: 0.9375rem; */
+  line-height: 125%;
 }
 
 .album {
@@ -145,7 +138,7 @@
   grid-column-end: 6;
   height: 0.9375rem;
   flex-shrink: 0;
-  color: var(--theme-color-primary-lightest, #a49bb4);
+  color: var(--primary_lightest);
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 125%;
@@ -167,24 +160,12 @@
 
 .time {
   /* outline: 3px solid tomato; */
-  color: var(--theme-color-primary-lightest, #a49bb4);
+  color: var(--primary_lightest);
   font-size: 0.75rem;
 
   font-weight: 400;
   line-height: 125%; /* 0.9375rem */
 }
-
-/* .favButton {
-  outline: 3px solid tomato;
-  display: none;
-}
-
-.show {
-  outline: 3px solid tomato;
-  background: none;
-  border: none;
-  display: flex;
-} */
 
 .favButton {
   /* outline: 3px solid tomato; */
@@ -197,21 +178,6 @@
 .favButtonHide {
   display: none;
 }
-
-/* .favButton::before {
-  outline: 3px solid tomato;
-  content: "";
-  position: absolute; 
-  top: 0;
-  left: 0; 
-  width: 100%; 
-  height: 100%; 
-  background: var(--theme-color-secondary-default, #2a144d);
-}
-
-.playItem:hover .favButton::before {
-  display: none;
-} */
 
 .favorite {
   /* outline: 3px solid tomato; */
@@ -231,7 +197,7 @@
 
   .favButton::before {
     /* outline: 3px solid tomato; */
-    background: var(--theme-color-secondary-default, #140330);
+    background: var(--primary_darker);
   }
 }
 
@@ -283,7 +249,7 @@
 
   .singer {
     /* outline: 3px solid tomato; */
-    color: var(--theme-color-secondary-lightest, #a49bb4);
+    color: var(--primary_lightest);
   }
 
   .picture {
@@ -301,7 +267,7 @@
 
   .time {
     /* outline: 3px solid tomato; */
-    color: var(--theme-color-secondary-lightest, #a49bb4);
+    color: var(--primary_lightest);
   }
 
   .favorite {

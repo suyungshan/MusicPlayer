@@ -44,21 +44,20 @@
 
 .name {
   /* outline: 3px solid tomato; */
-  font-family: "Noto Sans TC", sans-serif;
   border: none;
   background: none;
   width: auto;
   height: auto;
-  color: white;
+  color: var(--text_white);
 }
+
 .nameUnusing {
   /* outline: 3px solid tomato; */
-  font-family: "Noto Sans TC", sans-serif;
   border: none;
   background: none;
   width: auto;
   height: auto;
-  color: rgba(140, 124, 169, 1);
+  color: var(--primary_lighter);
 }
 
 @media (width <= 768px) {
@@ -76,14 +75,13 @@
 
   .icon {
     /* outline: 3px solid tomato; */
-    color: var(--neutral-color-white, #fff);
+    color: var(--text_white);
     font-size: 0.75rem;
     font-weight: 400;
-    line-height: 125%; /* 0.9375rem */
+    line-height: 125%;
     border: none;
     background: none;
-    /* outline: none; */
-    color: white;
+    color: var(--text_white);
     width: 1.5rem;
     height: 1.5rem;
   }

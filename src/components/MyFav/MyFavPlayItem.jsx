@@ -15,11 +15,16 @@ function MyFavPlayItem(props) {
   const favPlay = useSelector((state) => state.playControls.favPlay);
   const musicPlay = useSelector((state) => state.musicData.musicPlay);
   const videoIndex = useSelector((state) => state.playControls.videoIndex);
+  const allLoop = useSelector((state) => state.playControls.allLoop);
+
   const [showHiddenPlayPause, setShowHiddenPlayPause] = useState(false);
   const activeNextPlay = useSelector(
     (state) => state.playControls.activeNextPlay
   );
   const dispatch = useDispatch();
+  const deleteIndex = favList.findIndex(
+    (favList) => favList.song === props.song
+  );
 
   const myFavMusicHandler = () => {
     if (favList[props.number - 1].url === musicPlay[videoIndex].url) {
@@ -35,12 +40,8 @@ function MyFavPlayItem(props) {
 
   const deleteFavoritesHandler = () => {
     const deleteFavorites = favList.filter((favList) => {
-      return favList.url !== props.url;
+      return favList.song !== props.song;
     });
-
-    const deleteIndex = favList.findIndex(
-      (favList) => favList.url === props.url
-    );
 
     if (favPlay && deleteIndex < videoIndex) {
       dispatch(musicDataActions.updateFavList(deleteFavorites));
@@ -54,14 +55,14 @@ function MyFavPlayItem(props) {
       dispatch(musicDataActions.updateControlerInfor(deleteFavorites));
       dispatch(musicDataActions.updateMusicPlay(deleteFavorites));
     } else if (
-      (deleteIndex === videoIndex) === 0 &&
+      (favPlay && deleteIndex === videoIndex) === 0 &&
       deleteFavorites.length === 0
     ) {
       dispatch(musicDataActions.updateFavList([]));
-      dispatch(musicDataActions.updateMusicPlay(deleteFavorites));
+    } else if (playPause && musicPlay[videoIndex].song === props.song) {
+      return;
     } else {
       dispatch(musicDataActions.updateFavList(deleteFavorites));
-      dispatch(musicDataActions.updateMusicPlay(deleteFavorites));
     }
   };
 
@@ -78,7 +79,7 @@ function MyFavPlayItem(props) {
   };
 
   const activeHandler = (id) => {
-    dispatch(playControlsActions.adjustActiveNextPlay(id)); //這裡
+    dispatch(playControlsActions.adjustActiveNextPlay(id));
   };
 
   return smallScreen ? (
@@ -112,7 +113,10 @@ function MyFavPlayItem(props) {
       <div className={classes.detail}>
         {showHiddenPlayPause ? (
           <Fragment>
-            {playPause && favList[videoIndex].song === props.song ? (
+            {playPause &&
+            // favList === musicPlay &&
+            // videoIndex <= favList.length - 1 &&
+            activeNextPlay === props.song ? (
               <NextPauseIcon
                 className={classes.nextPlayIcon}
                 stateHandler={pauseHandler}
@@ -127,8 +131,8 @@ function MyFavPlayItem(props) {
             )}
           </Fragment>
         ) : (
-          <button className={classes.number} onClick={myFavMusicHandler}>
-            {props.number}
+          <button className={classes.first} onClick={myFavMusicHandler}>
+            <div className={classes.number}> {props.number}</div>
           </button>
         )}
         <AlbumPicture

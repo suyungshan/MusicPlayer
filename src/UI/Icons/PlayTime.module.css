@@ -1,9 +1,5 @@
 .playTime {
-  color: #b4b2b3;
-  font-family: Roboto;
   font-size: 0.625rem;
-  font-weight: 400;
-  line-height: normal;
   letter-spacing: -0.00938rem;
-  color: rgba(180, 178, 179, 1);
+  color: var(--primary_lightest);
 }

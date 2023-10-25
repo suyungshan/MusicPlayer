@@ -5,6 +5,12 @@
   padding: 0;
 }
 
+@media (width > 1280px) {
+  body {
+    background: var(--gradient_default);
+  }
+}
+
 body {
   /* outline: 3px solid tomato; */
   display: flex;
@@ -12,16 +18,88 @@ body {
   font-feature-settings: "clig" off, "liga" off;
   font-family: "Noto Sans TC", sans-serif;
   font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
 }
 
-@media (width > 1280px) {
-  body {
-    /* outline: 3px solid tomato; */
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(180deg, #57149a 0%, #2a144d 100%);
-    font-feature-settings: "clig" off, "liga" off;
-    font-family: "Noto Sans TC", sans-serif;
-    font-style: normal;
+button {
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Noto Sans TC", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+/*字體*/
+.h1 {
+  /* outline: 3px solid tomato; */
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 125%;
+}
+
+.h2 {
+  /* outline: 3px solid tomato; */
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 125%;
+}
+
+.body-sm {
+  /* outline: 3px solid tomato; */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.text-hint {
+  /* outline: 3px solid tomato; */
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 125%;
+}
+
+@media (width <= 768px) {
+  /*字體*/
+  .h1 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 125%;
   }
+
+  .h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  .body-sm {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+
+  .text-hint {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 125%;
+  }
+}
+
+/*顏色*/
+:root {
+  --hightlight: #e8308c;
+  --primary: #4b2e71; /* 這裡是主要的 primary 顏色 */
+  --primary_lightest: #a49bb4;
+  --primary_lighter: #8c7ca9;
+  --primary_light: #4b2e71;
+  --primary_default: #2a144d;
+  --primary_dark: #1b0643;
+  --primary_darker: #140330;
+  --text_white: #ffffff;
+  --text_black: #000000;
+  --gradient_default: linear-gradient(180deg, #57149a 0%, #2a144d 100%);
+  --gradient_dark: linear-gradient(180deg, #541494 0%, #140330 33.33%);
 }
