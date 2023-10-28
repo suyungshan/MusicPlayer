@@ -10,17 +10,11 @@ import classes from "./MyFavPlayItem.module.css";
 
 function MyFavPlayItem(props) {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
-  const playPause = useSelector((state) => state.playControls.playPause);
-  const favList = useSelector((state) => state.musicData.favList);
-  const favPlay = useSelector((state) => state.playControls.favPlay);
-  const musicPlay = useSelector((state) => state.musicData.musicPlay);
-  const videoIndex = useSelector((state) => state.playControls.videoIndex);
-  const allLoop = useSelector((state) => state.playControls.allLoop);
-
-  const [showHiddenPlayPause, setShowHiddenPlayPause] = useState(false);
-  const activeNextPlay = useSelector(
-    (state) => state.playControls.activeNextPlay
+  const { playPause, favPlay, videoIndex, activeNextPlay } = useSelector(
+    (state) => state.playControls
   );
+  const { musicPlay, favList } = useSelector((state) => state.musicData);
+  const [showHiddenPlayPause, setShowHiddenPlayPause] = useState(false);
   const dispatch = useDispatch();
   const deleteIndex = favList.findIndex(
     (favList) => favList.song === props.song

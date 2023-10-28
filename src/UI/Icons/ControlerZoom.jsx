@@ -1,13 +1,9 @@
-import { useSelector, useDispatch } from "react-redux";
 import { interfaceActions } from "../../store/interface";
+import { useDispatch } from "react-redux";
 import classes from "./ControlerZoom.module.css";
 
 function ControlerZoom() {
   const dispatch = useDispatch();
-  const controlerInfor = useSelector((state) => state.musicData.controlerInfor);
-  const videoIndex = useSelector((state) => state.playControls.videoIndex);
-  const favData = controlerInfor[videoIndex === 0 ? videoIndex : videoIndex];
-
   const zoomHandler = () => {
     dispatch(interfaceActions.closeControl());
   };

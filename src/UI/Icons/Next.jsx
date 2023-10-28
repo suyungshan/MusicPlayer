@@ -21,18 +21,18 @@ function Next(props) {
           stroke={
             allLoop || videoIndex !== musicPlay.length - 1 ? "white" : "#A49BB4"
           }
-          strokewidth="1.70667"
-          strokelinecap="round"
-          strokelinejoin="round"
+          strokeWidth="1.70667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M18 6V18"
           stroke={
             allLoop || videoIndex !== musicPlay.length - 1 ? "white" : "#A49BB4"
           }
-          strokewidth="1.70667"
-          strokelinecap="round"
-          strokelinejoin="round"
+          strokeWidth="1.70667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </button>

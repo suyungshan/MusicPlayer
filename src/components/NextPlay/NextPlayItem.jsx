@@ -10,16 +10,13 @@ import NextPauseIcon from "../../UI/Icons/NextPauseIcon";
 import FacebookPlayer from "react-player/facebook";
 
 function NextPlayItem(props) {
-  const nextPlay = useSelector((state) => state.musicData.nextPlay);
-  const favList = useSelector((state) => state.musicData.favList);
-  const musicPlay = useSelector((state) => state.musicData.musicPlay);
-  const videoIndex = useSelector((state) => state.playControls.videoIndex);
-  const smallScreen = useSelector((state) => state.windowSize.smallScreen);
-  const playPause = useSelector((state) => state.playControls.playPause);
-  const addToFav = useSelector((state) => state.playControls.addToFav);
-  const activeNextPlay = useSelector(
-    (state) => state.playControls.activeNextPlay
+  const { nextPlay, favList, musicPlay } = useSelector(
+    (state) => state.musicData
   );
+  const { videoIndex, activeNextPlay, playPause, addToFav } = useSelector(
+    (state) => state.playControls
+  );
+  const smallScreen = useSelector((state) => state.windowSize.smallScreen);
   const dispatch = useDispatch();
   const [showHiddenPlayPause, setShowHiddenPlayPause] = useState(false);
   const [showHiddenFav, setShowHiddenFav] = useState(false);

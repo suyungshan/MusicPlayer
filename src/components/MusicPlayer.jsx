@@ -19,75 +19,63 @@ import NextPlay from "./NextPlay/NextPlay";
 import MyFavMain from "./MyFav/MyFavMain";
 import MyFavPlay from "./MyFav/MyFavPlay";
 import ProgressBar from "../UI/Icons/ProgressBar";
-import FavoriteChoose from "../UI/Icons/FavoriteChoose";
 import ControlerZoom from "../UI/Icons/ControlerZoom";
 import BackZoom from "../UI/Icons/BackZoom";
 import PictureBackCard from "../UI/Card/PictureBackCard";
 import BuildingPage from "./BuildingPage/BuildingPage";
 import { musicDataActions } from "../store/musicData";
+import { useWindowSize } from "rooks";
 import classes from "./MusicPlayer.module.css";
 
 function MusicPlayer() {
-  //Redux toolkit
-  //播放器
-  const playPause = useSelector((state) => state.playControls.playPause);
-  const mute = useSelector((state) => state.playControls.mute);
-  const played = useSelector((state) => state.playControls.played);
-  const volume = useSelector((state) => state.playControls.volume);
-  const loop = useSelector((state) => state.playControls.loop);
-  const videoIndex = useSelector((state) => state.playControls.videoIndex);
-  const allLoop = useSelector((state) => state.playControls.allLoop);
-  const random = useSelector((state) => state.playControls.random);
-  const favPlay = useSelector((state) => state.playControls.favPlay);
-  const controlerInfor = useSelector((state) => state.musicData.controlerInfor);
+  const {
+    playPause,
+    mute,
+    played,
+    volume,
+    loop,
+    videoIndex,
+    allLoop,
+    random,
+    favPlay,
+  } = useSelector((state) => state.playControls);
+  const { musicPlay, favList, controlerInfor } = useSelector(
+    (state) => state.musicData
+  );
+  const { home, fav, main, control, profile, setting } = useSelector(
+    (state) => state.interface
+  );
+  const { midScreen, smallScreen } = useSelector((state) => state.windowSize);
   const favData = controlerInfor[videoIndex === 0 ? videoIndex : videoIndex];
-
-  //視窗大小控制
-  const smallScreen = useSelector((state) => state.windowSize.smallScreen);
-  const midScreen = useSelector((state) => state.windowSize.midScreen);
-
-  //介面控制
-  const home = useSelector((state) => state.interface.home);
-  const fav = useSelector((state) => state.interface.fav);
-  const main = useSelector((state) => state.interface.main);
-  const control = useSelector((state) => state.interface.control);
-  const profile = useSelector((state) => state.interface.profile);
-  const setting = useSelector((state) => state.interface.setting);
-
-  //歌曲資料
-  const musicPlay = useSelector((state) => state.musicData.musicPlay);
-  const favList = useSelector((state) => state.musicData.favList);
   const dispatch = useDispatch();
-
-  console.log(favList);
+  const { innerWidth } = useWindowSize();
 
   useEffect(() => {
+    const { openMidScreen, closeMidScreen, openSmallScreen, closeSmallScreen } =
+      windowSizeActions;
+
     const ScreenChange = () => {
-      if (window.innerWidth > 1200) {
-        dispatch(windowSizeActions.closeMidScreen());
-        dispatch(windowSizeActions.closeSmallScreen());
+      if (innerWidth > 1200) {
+        dispatch(closeMidScreen());
+        dispatch(closeSmallScreen());
       }
 
-      if (window.innerWidth <= 1200) {
-        dispatch(windowSizeActions.openMidScreen());
-        dispatch(windowSizeActions.closeSmallScreen());
+      if (innerWidth <= 1200) {
+        dispatch(openMidScreen());
+        dispatch(closeSmallScreen());
       }
 
-      if (window.innerWidth <= 768) {
-        dispatch(windowSizeActions.closeMidScreen());
-        dispatch(windowSizeActions.openSmallScreen());
+      if (innerWidth <= 768) {
+        dispatch(closeMidScreen());
+        dispatch(openSmallScreen());
       }
     };
-    //初始執行一次
     ScreenChange();
-    // 添加事件監聽器
-    window.addEventListener("resize", ScreenChange);
-  }, [window.innerWidth]);
+  }, [innerWidth]);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
-
     const formattedMinutes = String(minutes).padStart(2, "0");
     const formattedSeconds = String(remainingSeconds).padStart(2, "0");
 
@@ -102,9 +90,11 @@ function MusicPlayer() {
     const totalTime = playerRef.current.getDuration(); // 獲取總時長
     const remainingTime = totalTime - playerRef.current.getCurrentTime(); // 總時長減去目前播放時間
     const formattedRemainingTime = formatTime(remainingTime);
-    dispatch(playControlsActions.adjustRemainSecond(formattedRemainingTime));
-    dispatch(playControlsActions.adjustplaySecond(formattedTime));
-    dispatch(playControlsActions.adjustPlayed(progress.played));
+    const { adjustRemainSecond, adjustplaySecond, adjustPlayed } =
+      playControlsActions;
+    dispatch(adjustRemainSecond(formattedRemainingTime));
+    dispatch(adjustplaySecond(formattedTime));
+    dispatch(adjustPlayed(progress.played));
   };
 
   const onSeek = (seekTime) => {
@@ -114,11 +104,14 @@ function MusicPlayer() {
   };
 
   const onNextVideo = () => {
+    const { updateMusicPlay, updateControlerInfor } = musicDataActions;
+    const { adjustVideoIndex, play } = playControlsActions;
+
     if (favPlay && favList !== musicPlay) {
-      dispatch(musicDataActions.updateMusicPlay(favList));
-      dispatch(playControlsActions.adjustVideoIndex(videoIndex + 1));
-      dispatch(musicDataActions.updateControlerInfor(favList));
-      dispatch(playControlsActions.play());
+      dispatch(updateMusicPlay(favList));
+      dispatch(updateControlerInfor(favList));
+      dispatch(adjustVideoIndex(videoIndex + 1));
+      dispatch(play());
     }
 
     if (allLoop && !random) {

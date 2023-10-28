@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 
 function AlbumNewLists(props) {
   const albumNew = useSelector((state) => state.musicData.albumNew);
-  const smallScreen = useSelector((state) => state.windowSize.smallScreen);
-  const midScreen = useSelector((state) => state.windowSize.midScreen);
+  const { midScreen, smallScreen } = useSelector((state) => state.windowSize);
 
   return (
     <div className={classes.album}>

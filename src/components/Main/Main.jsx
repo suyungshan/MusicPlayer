@@ -11,8 +11,7 @@ import ColorBackCard from "../../UI/Card/ColorBackCard";
 
 function Main() {
   const playingData = useSelector((state) => state.musicData.playingData);
-  const midScreen = useSelector((state) => state.windowSize.midScreen);
-  const smallScreen = useSelector((state) => state.windowSize.smallScreen);
+  const { midScreen, smallScreen } = useSelector((state) => state.windowSize);
   const dispatch = useDispatch();
 
   const playAlbumHandler = () => {

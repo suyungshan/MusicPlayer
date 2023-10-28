@@ -8,10 +8,9 @@ import classes from "./NavigationLists.module.css";
 
 function NavigationList() {
   const dispatch = useDispatch();
-  const home = useSelector((state) => state.interface.home);
-  const fav = useSelector((state) => state.interface.fav);
-  const profile = useSelector((state) => state.interface.profile);
-  const setting = useSelector((state) => state.interface.setting);
+  const { home, fav, profile, setting } = useSelector(
+    (state) => state.interface
+  );
 
   const homeHandler = () => {
     dispatch(interfaceActions.openHome());

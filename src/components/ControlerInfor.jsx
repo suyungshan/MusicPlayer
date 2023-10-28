@@ -9,18 +9,13 @@ import classes from "./ControlerInfor.module.css";
 function ControlerInfor() {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
   const control = useSelector((state) => state.interface.control);
-  const controlerInfor = useSelector((state) => state.musicData.controlerInfor);
-  const videoIndex = useSelector((state) => state.playControls.videoIndex);
-  const musicPlay = useSelector((state) => state.musicData.musicPlay);
-  const favList = useSelector((state) => state.musicData.favList);
-  const addToFav = useSelector((state) => state.playControls.addToFav);
+  const { controlerInfor, musicPlay, favList } = useSelector(
+    (state) => state.musicData
+  );
+  const { addToFav, videoIndex } = useSelector((state) => state.playControls);
   const dispatch = useDispatch();
   const favData = controlerInfor[videoIndex];
   const newFavorites = [...favList];
-
-  const existingUrl = favList.find((favListItem) => {
-    return favListItem.url === controlerInfor.url;
-  });
 
   const existingSong = newFavorites.find((favListItem) => {
     if (Object.prototype.toString.call(controlerInfor) === "[object Array]") {

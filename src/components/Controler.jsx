@@ -14,21 +14,20 @@ import PlaySmall from "../UI/Icons/PlaySmall";
 import classes from "./Controler.module.css";
 
 function Controler(props) {
-  const videoIndex = useSelector((state) => state.playControls.videoIndex);
-  const played = useSelector((state) => state.playControls.played);
-  const remainSecond = useSelector((state) => state.playControls.remainSecond);
-  const playSecond = useSelector((state) => state.playControls.playSecond);
-  const loop = useSelector((state) => state.playControls.loop);
-  const allLoop = useSelector((state) => state.playControls.allLoop);
-  const random = useSelector((state) => state.playControls.random);
-  const midScreen = useSelector((state) => state.windowSize.midScreen);
-  const smallScreen = useSelector((state) => state.windowSize.smallScreen);
+  const {
+    videoIndex,
+    played,
+    remainSecond,
+    playSecond,
+    loop,
+    allLoop,
+    random,
+    favPlay,
+    playPause,
+  } = useSelector((state) => state.playControls);
+  const { favList, musicPlay } = useSelector((state) => state.musicData);
+  const { midScreen, smallScreen } = useSelector((state) => state.windowSize);
   const control = useSelector((state) => state.interface.control);
-  const favPlay = useSelector((state) => state.playControls.favPlay);
-  const favList = useSelector((state) => state.musicData.favList);
-  const musicPlay = useSelector((state) => state.musicData.musicPlay);
-  const playPause = useSelector((state) => state.playControls.playPause);
-
   const dispatch = useDispatch();
 
   const playHandler = () => {

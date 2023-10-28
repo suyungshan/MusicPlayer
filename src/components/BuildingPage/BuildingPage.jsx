@@ -1,5 +1,4 @@
 import AlbumPicture from "../AlbumPicture";
-
 import classes from "./BuildingPage.module.css";
 
 function BuildingPage(props) {

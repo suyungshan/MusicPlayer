@@ -5,8 +5,7 @@ import { playControlsActions } from "../store/playControls";
 import classes from "./Volume.module.css";
 
 function Volume() {
-  const mute = useSelector((state) => state.playControls.mute);
-  const volume = useSelector((state) => state.playControls.volume);
+  const { mute, volume } = useSelector((state) => state.playControls);
   const control = useSelector((state) => state.interface.control);
 
   const muteHandler = () => {

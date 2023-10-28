@@ -10,8 +10,7 @@ import { Fragment } from "react";
 function MyFavMain() {
   const smallScreen = useSelector((state) => state.windowSize.smallScreen);
   const favList = useSelector((state) => state.musicData.favList);
-  const videoIndex = useSelector((state) => state.playControls.videoIndex);
-  const favPlay = useSelector((state) => state.playControls.favPlay);
+  const { videoIndex, favPlay } = useSelector((state) => state.playControls);
   const dispatch = useDispatch();
 
   const playFavHandler = () => {
