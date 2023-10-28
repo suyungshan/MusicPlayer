@@ -15,9 +15,9 @@ function Pause(props) {
         <path
           d="M11.5664 22.6688V10.1387M20.2411 22.6688V10.1387"
           stroke="white"
-          strokewidth="2.5"
-          strokelinecap="round"
-          strokelinejoin="round"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </button>
