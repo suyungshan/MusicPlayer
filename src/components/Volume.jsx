@@ -1,12 +1,13 @@
 import VolumeIcon from "../UI/Icons/VolumeIcon";
 import VolumeProgress from "../UI/Icons/VolumeProgress";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { playControlsActions } from "../store/playControls";
 import classes from "./Volume.module.css";
 
 function Volume() {
   const { mute, volume } = useSelector((state) => state.playControls);
   const control = useSelector((state) => state.interface.control);
+  const dispatch = useDispatch()
 
   const muteHandler = () => {
     dispatch(playControlsActions.toggleMute());

@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { musicDataActions } from "../../store/musicData";
 import { playControlsActions } from "../../store/playControls";
 import { Fragment } from "react";
-import ColorBackCard from "../../UI/Card/ColorBackCard";
 
 function Main() {
   const playingData = useSelector((state) => state.musicData.playingData);

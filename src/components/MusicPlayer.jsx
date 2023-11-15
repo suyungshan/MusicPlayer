@@ -103,6 +103,22 @@ function MusicPlayer() {
     playerRef.current.seekTo(targetTime, "seconds");
   };
 
+  const randomVideo = () => {
+    if (random === true) {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * musicPlay.length);
+      } while (randomIndex === videoIndex);
+      dispatch(playControlsActions.adjustVideoIndex(randomIndex));
+      dispatch(
+        playControlsActions.adjustActiveNextPlay(musicPlay[randomIndex].song)
+      );
+      dispatch(playControlsActions.play);
+    } else {
+      return;
+    }
+  };
+
   const onNextVideo = () => {
     const { updateMusicPlay, updateControlerInfor } = musicDataActions;
     const { adjustVideoIndex, play } = playControlsActions;
@@ -145,22 +161,6 @@ function MusicPlayer() {
     }
   };
 
-  const randomVideo = () => {
-    if (random === true) {
-      let randomIndex;
-      do {
-        randomIndex = Math.floor(Math.random() * musicPlay.length);
-      } while (randomIndex === videoIndex);
-      dispatch(playControlsActions.adjustVideoIndex(randomIndex));
-      dispatch(
-        playControlsActions.adjustActiveNextPlay(musicPlay[randomIndex].song)
-      );
-      dispatch(playControlsActions.play);
-    } else {
-      return;
-    }
-  };
-
   const closeMainHandler = () => {
     dispatch(interfaceActions.closeMain());
   };
@@ -184,8 +184,6 @@ function MusicPlayer() {
           ref={playerRef}
           url={musicPlay.length > 0 ? musicPlay[videoIndex].url : []}
           controls={false}
-          width={720}
-          height={480}
           playing={playPause}
           muted={mute}
           volume={volume}

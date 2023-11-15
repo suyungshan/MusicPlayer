@@ -40,7 +40,6 @@ function MyFavMain() {
                 }
               ></AlbumPicture>
             </div>
-
             <div className={classes.InforPlay}>
               <MyFavMainInf
                 fulltime={"05:00"}

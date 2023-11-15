@@ -165,9 +165,7 @@ function NextPlayItem(props) {
         <p className={`text-hint ${classes.time}`}>{props.time}</p>
         <button
           className={
-            showHiddenPlayPause || showHiddenFav
-              ? classes.favButton
-              : existingSong
+            showHiddenFav || existingSong
               ? classes.favButton
               : classes.favButtonHide
           }

@@ -8,7 +8,7 @@ import MusicPlayer from "./components/MusicPlayer";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <MusicPlayer></MusicPlayer>
+      <MusicPlayer />
     </Provider>
   </React.StrictMode>
 );
