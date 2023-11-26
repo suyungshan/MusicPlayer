@@ -71,7 +71,7 @@
     width: 100%;
     min-width: 20rem;
     /* height: fit-content; */
-    height: calc(55px + env(safe-area-inset-bottom));
+    height: env(safe-area-inset-bottom);
     max-height: 4rem;
     flex-shrink: 0;
     top: unset;
