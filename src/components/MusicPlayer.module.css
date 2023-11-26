@@ -558,10 +558,10 @@
     height: calc(100% + 8rem);
     max-height: max-content;
     background: var(--primary_darker);
-    padding-top: constant(safe-area-inset-top);
+    /* padding-top: constant(safe-area-inset-top);
     padding-right: constant(safe-area-inset-right);
     padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left);
+    padding-left: constant(safe-area-inset-left); */
   }
 
   .centerMain {
@@ -571,10 +571,10 @@
     height: calc(100% + 8rem);
     max-width: 100%;
     background: var(--gradient_dark);
-    padding-top: constant(safe-area-inset-top);
+    /* padding-top: constant(safe-area-inset-top);
     padding-right: constant(safe-area-inset-right);
     padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left);
+    padding-left: constant(safe-area-inset-left); */
   }
 
   .centerFav {
@@ -584,10 +584,10 @@
     height: calc(100% + 22rem);
     max-width: 100%;
     background: var(--gradient_dark);
-    padding-top: constant(safe-area-inset-top);
+    /* padding-top: constant(safe-area-inset-top);
     padding-right: constant(safe-area-inset-right);
     padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left);
+    padding-left: constant(safe-area-inset-left); */
   }
 
   .display {
@@ -641,10 +641,10 @@
     min-height: 60.5rem;
     max-height: 64.5rem;
     background: none;
-    padding-top: constant(safe-area-inset-top);
+    /* padding-top: constant(safe-area-inset-top);
     padding-right: constant(safe-area-inset-right);
     padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left);
+    padding-left: constant(safe-area-inset-left); */
   }
 
   .contentBack {
