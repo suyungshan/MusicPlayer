@@ -759,9 +759,9 @@
   }
 }
 
-@media (width < 480px) {
+/* @media (width < 480px) {
   .centerControl {
-    /* outline: 3px solid tomato; */
+    outline: 3px solid tomato;
     display: flex;
     width: 100vw;
     min-height: none;
@@ -769,4 +769,4 @@
     height: 36.625rem;
     background: none;
   }
-}
+} */

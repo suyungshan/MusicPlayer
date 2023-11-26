@@ -10,7 +10,7 @@ function Navigation() {
     <div className={classes.navigation}>
       {smallScreen ? null : (
         <div className={classes.title}>
-          <Title className={classes.name} title={"SAM"}></Title>
+          <Title className={classes.name} title={"Yung"}></Title>
           <Title className={classes.music} title={"MUSIC"}></Title>
         </div>
       )}

@@ -7,7 +7,6 @@ import classes from "./NextPlayItem.module.css";
 import NextPlayIcon from "../../UI/Icons/NextPlayIcon";
 import { Fragment, useState } from "react";
 import NextPauseIcon from "../../UI/Icons/NextPauseIcon";
-import FacebookPlayer from "react-player/facebook";
 
 function NextPlayItem(props) {
   const { nextPlay, favList, musicPlay } = useSelector(
