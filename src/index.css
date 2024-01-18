@@ -24,6 +24,8 @@
 @media (width > 1280px) {
   body {
     background: var(--gradient_default);
+    width: 100vw;
+    height: 100vh;
   }
 }
 

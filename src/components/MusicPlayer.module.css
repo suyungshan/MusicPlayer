@@ -4,9 +4,9 @@
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 125%;
-  position: absolute;
+  position: fixed;
   left: 50%;
-  top: 1.5rem;
+  top: 1.81rem;
   transform: translate(-50%);
 }
 
@@ -128,18 +128,19 @@
 .centerControl {
   /* outline: 3px solid tomato; */
   display: flex;
-  width: 100%;
-  height: 64.5rem;
+  width: 100vw;
+  height: 100vh;
   background: none;
   position: relative;
+  overflow: hidden;
 }
 
 .back {
   /* outline: 3px solid tomato; */
   background: var(--text_black);
   display: flex;
-  width: 100vw;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   position: relative;
 }
 
@@ -147,7 +148,7 @@
   /* outline: 3px solid tomato; */
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   align-items: center;
   justify-content: center;
   opacity: 0.2;
@@ -156,20 +157,20 @@
 .pictureBack img {
   /* outline: 3px solid tomato; */
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   object-position: center;
 }
 
 .contentBack {
-  /* outline: 3px solid tomato; */
+  outline: 3px solid tomato;
   position: absolute;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 1.5rem;
   width: 100%;
-  height: 100%;
-  padding: 0 1.5rem;
+  height: 100vh;
+  padding: 0rem 13rem;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -182,7 +183,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: fit-content;
+  height: min-content;
 }
 
 .musicControl {
@@ -192,15 +193,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 @media (width <= 1280px) {
   .centerControl {
     /* outline: 3px solid tomato; */
     display: flex;
-    width: 100%;
-    height: 45.5rem;
+    width: 100vw;
+    height: 100vh;
     background: none;
     position: relative;
   }
@@ -355,8 +356,8 @@
   .centerControl {
     /* outline: 3px solid tomato; */
     display: flex;
-    width: 100%;
-    height: 64.5rem;
+    width: 100vw;
+    height: 100vh;
     background: none;
     position: relative;
   }
@@ -396,7 +397,7 @@
     grid-column-gap: 1.5rem;
     width: 100%;
     height: 100%;
-    padding: 0 1.5rem;
+    padding: 0 3rem;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
@@ -420,6 +421,18 @@
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+  }
+
+  .album {
+    /* outline: 3px solid tomato; */
+    color: var(--text_white);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 125%;
+    position: fixed;
+    left: 50%;
+    top: 1rem;
+    transform: translate(-50%);
   }
 }
 
@@ -476,8 +489,8 @@
   .centerControl {
     /* outline: 3px solid tomato; */
     display: flex;
-    width: 100%;
-    height: 64.5rem;
+    width: 100vw;
+    height: 100vh;
     background: none;
   }
 
@@ -549,6 +562,17 @@
 }
 
 @media (width <= 768px) {
+  .album {
+    /* outline: 3px solid tomato; */
+    color: var(--text_white);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 125%;
+    position: fixed;
+    left: 50%;
+    top: 1.06rem;
+    transform: translate(-50%);
+  }
   .center {
     /* outline: 3px solid tomato; */
     display: flex;
@@ -558,10 +582,6 @@
     height: calc(100% + 8rem);
     max-height: max-content;
     background: var(--primary_darker);
-    /* padding-top: constant(safe-area-inset-top);
-    padding-right: constant(safe-area-inset-right);
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left); */
   }
 
   .centerMain {
@@ -571,10 +591,6 @@
     height: calc(100% + 8rem);
     max-width: 100%;
     background: var(--gradient_dark);
-    /* padding-top: constant(safe-area-inset-top);
-    padding-right: constant(safe-area-inset-right);
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left); */
   }
 
   .centerFav {
@@ -584,10 +600,6 @@
     height: calc(100% + 22rem);
     max-width: 100%;
     background: var(--gradient_dark);
-    /* padding-top: constant(safe-area-inset-top);
-    padding-right: constant(safe-area-inset-right);
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left); */
   }
 
   .display {
@@ -637,14 +649,9 @@
   .centerControl {
     /* outline: 3px solid tomato; */
     display: flex;
-    width: 100%;
-    min-height: 60.5rem;
-    max-height: 64.5rem;
+    width: 100vw;
+    height: 100vh;
     background: none;
-    /* padding-top: constant(safe-area-inset-top);
-    padding-right: constant(safe-area-inset-right);
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-left: constant(safe-area-inset-left); */
   }
 
   .contentBack {
@@ -655,7 +662,7 @@
     grid-column-gap: 0;
     width: 100%;
     height: 100%;
-    padding: 0;
+    padding: 0 11rem;
     box-sizing: border-box;
   }
 
@@ -673,8 +680,8 @@
     height: min-content;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .back {
@@ -734,12 +741,6 @@
     /* outline: 3px solid tomato; */
     width: 1.25rem;
     height: 1.25rem;
-  }
-
-  .musicControl {
-    /* outline: 3px solid tomato; */
-    align-items: flex-start;
-    gap: 1rem;
   }
 
   .unFinish {

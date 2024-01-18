@@ -253,8 +253,10 @@
   .pictureControl {
     /* outline: 3px solid tomato; */
     display: flex;
-    width: 30rem;
-    height: 30rem;
+    max-width: 30rem;
+    max-height: 30rem;
+    min-width: 18rem;
+    min-height: 18rem;
     align-items: center;
     justify-content: center;
   }
@@ -266,16 +268,5 @@
     object-fit: cover;
     object-position: center;
     aspect-ratio: 1/1;
-  }
-}
-
-@media (width < 480px) {
-  .pictureControl {
-    /* outline: 3px solid tomato; */
-    display: flex;
-    width: 18rem;
-    height: 18rem;
-    align-items: center;
-    justify-content: center;
   }
 }

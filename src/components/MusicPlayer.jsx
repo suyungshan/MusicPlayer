@@ -210,13 +210,13 @@ function MusicPlayer() {
             >
               <div className={classes.contentControl}>
                 <ControlerZoom></ControlerZoom>
-                <p className={classes.album}>
-                  {Object.prototype.toString.call(controlerInfor) ===
-                  "[object Array]"
-                    ? favData.album
-                    : controlerInfor.album}
-                </p>
                 <div className={classes.musicControl}>
+                  <p className={classes.album}>
+                    {Object.prototype.toString.call(controlerInfor) ===
+                    "[object Array]"
+                      ? favData.album
+                      : controlerInfor.album}
+                  </p>
                   <ControlerInfor></ControlerInfor>
                   <Controler
                     onNextVideo={onNextVideo}
