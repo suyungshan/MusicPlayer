@@ -265,6 +265,10 @@
     height: calc(100% + 4.5rem);
     max-width: 100%;
     background: var(--gradient_dark);
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
   }
 
   .centerFav {
@@ -274,6 +278,10 @@
     height: calc(100% + 4.5rem);
     max-width: 100%;
     background: var(--gradient_dark);
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
   }
 
   .mainPlay {
