@@ -86,7 +86,9 @@ function MyFavPlayItem(props) {
         <div className={classes.actor}>
           <p className={classes.song}>{props.song}</p>
         </div>
+        <p className={classes.album}>{props.album}</p>
       </button>
+
       <div className={classes.last}>
         <p className={classes.time}>{props.time}</p>
         <button className={classes.favButton} onClick={deleteFavoritesHandler}>
