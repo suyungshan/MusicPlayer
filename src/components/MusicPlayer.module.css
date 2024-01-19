@@ -18,6 +18,10 @@
   max-width: 80rem;
   height: 100vh;
   background: var(--primary_darker);
+  padding-top: constant(safe-area-inset-top);
+  padding-right: constant(safe-area-inset-right);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-left: constant(safe-area-inset-left);
 }
 
 .centerUnFinish {
@@ -133,6 +137,10 @@
   background: none;
   position: relative;
   overflow: hidden;
+  padding-top: constant(safe-area-inset-top);
+  padding-right: constant(safe-area-inset-right);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-left: constant(safe-area-inset-left);
 }
 
 .back {
@@ -204,6 +212,10 @@
     height: 100vh;
     background: none;
     position: relative;
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
   }
 
   .fixedControlBar {
@@ -360,6 +372,10 @@
     height: 100vh;
     background: none;
     position: relative;
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
   }
 
   .back {
@@ -492,6 +508,10 @@
     width: 100vw;
     height: 100vh;
     background: none;
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
   }
 
   .contentBack {
@@ -652,6 +672,10 @@
     width: 100vw;
     height: 100vh;
     background: none;
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
   }
 
   .contentBack {
