@@ -4,7 +4,7 @@
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 125%;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 1.81rem;
   transform: translate(-50%);
@@ -171,7 +171,7 @@
 }
 
 .contentBack {
-  outline: 3px solid tomato;
+  /* outline: 3px solid tomato; */
   position: absolute;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -185,7 +185,7 @@
 }
 
 .contentControl {
-  /* outline: 3px solid tomato; */
+  outline: 3px solid tomato;
   grid-column-start: 5;
   grid-column-end: 9;
   display: flex;
@@ -445,8 +445,6 @@
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 125%;
-    position: fixed;
-    left: 50%;
     top: 1rem;
     transform: translate(-50%);
   }
@@ -588,8 +586,6 @@
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 125%;
-    position: fixed;
-    left: 50%;
     top: 1.06rem;
     transform: translate(-50%);
   }
